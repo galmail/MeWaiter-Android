@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >       
+               
+       <ImageView
+           android:id="@+id/icono"
+           android:layout_width="?android:attr/listPreferredItemHeight"
+           android:layout_height="93dp"
+           android:layout_gravity="fill|center"
+           android:adjustViewBounds="true"
+           android:contentDescription="Icono"
+           android:background="@drawable/item_background_holo_light"
+           android:gravity="center"
+           android:paddingBottom="20dp"
+           android:paddingLeft="20dp"
+           android:paddingRight="10dp"
+           android:paddingTop="20dp"
+           android:scaleType="centerInside"
+           android:src="@drawable/ic_action_send" />
+       
+       <TextView
+           android:id="@+id/subtitulo"
+           android:layout_width="fill_parent"
+           android:layout_height="92dp"
+           android:layout_gravity="clip_horizontal"
+           android:background="@drawable/item_background_holo_light"
+           android:gravity="left|center_vertical"
+           android:text="Otro Texto"
+           android:textColor="@color/pressed_mewaiter"
+           android:textSize="@dimen/small"
+           android:typeface="sans" />
+ 
+</LinearLayout>
+      
+

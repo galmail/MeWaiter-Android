@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">meWaiter</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <color name="gris">#eeee</color>
+    <color name="azul">#A9D0F5</color>
+    <color name="azul2">#0174DF</color>
+    <color name="verde">#01df3a</color> 
+    <color name="verde2">#81F79F</color>
+    <color name="amarillo">#F5F6CE</color>
+    <color name="gris2">#E0E6F8</color>
+    <color name="gris3">#BDBDBD</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="azul3">#5882FA</color>
+    <color name="actionbar_separator">#8B1A1A</color>
+    <color name="actionbar_title">#FFFFFF</color>
+    <color name="actionbar_background_start">#8B1A1A</color>
+    <color name="actionbar_background_end">#CD2626</color>
+    <color name="actionbar_background_item_pressed_start">#FF7F00</color>
+    <color name="actionbar_background_item_pressed_end">#EE7600</color>
+    
+    
+    <string name="action_search">Buscar</string>
+    <string name="action_done">OK</string>
+    <string name="action_pedido">Pedidos</string>
+    <string name="action_mesas">Mesas</string>
+    <string name="action_carta">Carta</string>
+    <string name="action_pdteenvio">Pdte. Envios</string>
+    <string name="action_add">Añadir</string>
+    <string name="action_ticket">Ver Ticket</string>
+    <string name="action_refresh">Recargar Pedido</string>
+    <string name="action_send">Enviar Pedido</string>
+    <string name="restaurante">Indalo</string>
+    <string name="sync">Sincronizar</string>
+    <string name="prueba">Prueba</string>
+    <string name="wifi">Sólo Wi-fi</string>
+    <string name="action_wait">Please wait...</string>
+    <string name="salir">Salir</string>
+    <string name="nombre">Pablo Iglesias</string>
+    <string name="settings">Configuración</string>
+    <string name="action_saludo">¡ Hola Camarero !</string>
+    <string name="ask_comandar">¿Preparado para comandar?</string>
+    <string name="action_comenzar">Comenzar</string>
+    <string name="aviso">Estás a un sólo paso de comenzar...</string>
+    <string name="login">Login</string>
+    <string name="hello">Hello World!</string>
+    <string name="actionbar_activity_not_found">Failed to open intent...</string>
+    <string-array name="menu_dia_aperitivos">
+        <item >Nachos con Queso</item>
+        <item >Quesadillas</item>
+        <item >Ensalada Cesar</item>
+    </string-array>
+    <string-array name="menu_dia_pastas">
+        <item >Siciliana</item>
+        <item >Raviolis</item>
+        <item >Noodles</item>
+        <item >Udon</item>
+    </string-array>
+    <string-array name="menu_dia_carnes">
+        <item >Hamburguesa 1/2 Libra</item>
+        <item >Entrecot de ternera</item>
+        <item >Cordero Asado</item>
+    </string-array>
+    <string name="SelectedStyle">&quot;@style/TextViewStyleMedium&quot;</string>
+    
+
+</resources>

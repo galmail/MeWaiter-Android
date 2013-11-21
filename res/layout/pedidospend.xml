@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="500dp"
+    android:visibility="visible" >
+
+    <!--
+     <ScrollView
+     android:id="@+id/scrollView1"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/actionBarMenu" >
+    -->
+
+    <!-- </ScrollView> -->
+
+    <Button
+        android:id="@+id/btnReenviar"
+        style="@style/Buttonmystyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar todos ahora"
+        android:textSize="@dimen/small" />
+
+    <ListView
+        android:id="@+id/list_journal"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnReenviar"
+        android:overScrollMode="ifContentScrolls"
+        android:visibility="gone" >
+
+    </ListView>
+
+</RelativeLayout>

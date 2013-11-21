@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/factura"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="500dp"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideInset" >
+
+    <com.aforma.mewaiter.utils.ActionBar
+        android:id="@+id/actionBar1"
+         style="@style/ActionBar"
+    	 android:background="@drawable/actionbar_background" >
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Volver"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnImp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Imprimir"
+            android:textStyle="bold" />
+
+    </com.aforma.mewaiter.utils.ActionBar>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/actionBar1"
+        android:background="@color/blanco" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/blanco"
+            android:minHeight="500dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtMesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txttable"
+                android:layout_alignBottom="@+id/txttable"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="21dp"
+                android:text="Mesa"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTicket"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/lstpedido"
+                android:layout_alignRight="@+id/lstpedidos"
+                android:layout_below="@+id/txttable"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:text="Ticket"
+                android:textColor="@color/azul2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txttable"
+                style="@android:attr/editTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/verde"
+                android:textStyle="bold" />
+       
+    <TextView
+        android:id="@+id/txtPago"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/lstpedido"
+        android:layout_alignRight="@+id/lstPago"
+        android:layout_below="@+id/lstpedido"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:text="Forma de Pago"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lstPago"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/lstpedido"
+        android:layout_alignRight="@+id/lstpedido"
+        android:layout_below="@+id/txtPago"
+        android:background="@drawable/btn_redondo_blanco"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:textColor="@color/azul2"
+        android:textSize="15sp"
+        android:textStyle="bold" >
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/lstpedido"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/txtMesa"
+        android:layout_alignRight="@+id/txttable"
+        android:layout_below="@+id/txtTicket"
+        android:background="@drawable/btn_redondo_blanco"
+        android:choiceMode="none"
+        android:clickable="false"
+        android:longClickable="false"
+        android:textColor="@color/azul2"
+        android:textSize="15sp"
+        android:textStyle="bold" >
+
+    </ListView>
+    
+     </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

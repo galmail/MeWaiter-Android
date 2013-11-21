@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.aforma.mewaiter.app"
+    android:id="@+id/mesasLay"
+    style="@style/ListViewmystyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blanco" >
+
+    <ListView
+        android:id="@+id/lstZona"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/actionBarMesas"
+        android:layout_margin="10dp"
+        android:choiceMode="singleChoice" >
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/lstNumero"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignRight="@+id/lstZona"
+        android:layout_alignTop="@+id/lstZona"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:choiceMode="singleChoice" >
+
+    </ListView>
+
+    <com.aforma.mewaiter.utils.ActionBar
+        android:id="@+id/actionBarMesas"
+        style="@style/ActionBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/actionbar_background"
+        app:title="Elige una mesa" >
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ab_transparent_mewaiter"
+            android:text="  &lt; Cancelar"
+            android:textSize="@dimen/small" />
+
+        <Button
+            android:id="@+id/btnOK"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ab_transparent_mewaiter"
+            android:text="Aceptar"
+            android:textSize="@dimen/small" />
+
+    </com.aforma.mewaiter.utils.ActionBar>
+
+</RelativeLayout>

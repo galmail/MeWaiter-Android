@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.aforma.mewaiter.app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+    	android:targetSdkVersion="10" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_mewaiter"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:debuggable="true" >
+        <activity
+            android:name="com.aforma.mewaiter.app.Lander"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:noHistory="true" 
+             android:theme="@android:style/Theme.NoTitleBar"> 
+           
+            
+        </activity>
+         <activity
+            android:name="com.aforma.mewaiter.app.Login"
+            android:screenOrientation="portrait"
+            android:noHistory="true" 
+            android:label="@string/app_name" 
+             android:theme="@android:style/Theme.NoTitleBar">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+      
+       <activity 
+            android:name="com.aforma.mewaiter.app.Main"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.NoTitleBar">
+            
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+             
+            </intent-filter>
+       </activity>
+      
+       <activity 
+            android:name="com.aforma.mewaiter.app.Carta"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+      
+    
+       <activity 
+            android:name="com.aforma.mewaiter.app.Secciones"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+        <activity 
+            android:name="com.aforma.mewaiter.app.Subsecciones"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+       
+        <activity 
+            android:name="com.aforma.mewaiter.app.MenuPedido"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.NoTitleBar">
+       </activity>
+       
+       <activity 
+            android:name="com.aforma.mewaiter.app.Sugerencias"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+       <activity 
+            android:name="com.aforma.mewaiter.app.AbrirMesa"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+		<activity 
+            android:name="com.aforma.mewaiter.app.Platos"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+       <activity 
+            android:name="com.aforma.mewaiter.app.MenuDia"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+        <activity 
+            android:name="com.aforma.mewaiter.app.CartaVinos"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+        <activity 
+            android:name="com.aforma.mewaiter.app.DetallePlato"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+       </activity>
+      
+       <activity 
+            android:name="com.aforma.mewaiter.app.Factura"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" 
+             android:theme="@android:style/Theme.NoTitleBar">
+       </activity>
+       <activity 
+            android:name="com.aforma.mewaiter.app.DetalleOrder"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" 
+             android:theme="@android:style/Theme.NoTitleBar">
+       </activity>
+    </application>
+
+</manifest>

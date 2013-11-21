@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pedidos"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:minHeight="500dp"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideInset" >
+    
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@color/blanco"
+        android:minHeight="500dp" >
+
+        <RelativeLayout
+            style="@style/AppBaseTheme"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="500dp"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/lstpedido"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/txtPedido"
+                android:choiceMode="singleChoice"
+                android:clickable="false"
+                android:drawSelectorOnTop="true"
+                android:longClickable="false"
+                android:textColor="@color/azul2"
+                android:textSize="15sp"
+                android:textStyle="bold" >
+            </ListView>
+
+            <TextView
+                android:id="@+id/txtPago"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/lstpedido"
+                android:background="@color/gris3"
+                android:gravity="center_vertical"
+                android:text="Mesa 12"
+                android:textColor="@color/azul2"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/lstPedido2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/txtPago"
+                android:clickable="false"
+                android:longClickable="false" >
+            </ListView>
+
+            <TextView
+                android:id="@+id/txtPedido"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/btnReenviar"
+                android:layout_marginTop="19dp"
+                android:background="@color/gris3"
+                android:gravity="center_vertical"
+                android:text="Mesa 5"
+                android:textColor="@color/azul2"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnEnviar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnAnular1"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/btnAnular1"
+                android:text="Enviar" />
+
+            <Button
+                android:id="@+id/btnReenviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:text="Enviar todos ahora"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAnular1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/txtPedido"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@+id/btnEnviar1"
+                android:text="Anular" />
+
+            <Button
+                android:id="@+id/Button02"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/txtPago"
+                android:layout_alignLeft="@+id/btnAnular1"
+                android:text="Anular" />
+
+            <Button
+                android:id="@+id/Button01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/txtPago"
+                android:layout_alignTop="@+id/Button02"
+                android:layout_toRightOf="@+id/btnAnular1"
+                android:text="Enviar" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
