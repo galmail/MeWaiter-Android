@@ -32,20 +32,6 @@
         android:textSize="@dimen/small" />
 
     <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtComandar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/pressed_mewaiter"
-        android:textSize="@dimen/big"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/txtAviso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,5 +52,17 @@
         android:textColor="@android:color/black"
         android:textSize="@dimen/small"
         android:textStyle="normal" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtSaludo"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/logo" />
 
 </RelativeLayout>
