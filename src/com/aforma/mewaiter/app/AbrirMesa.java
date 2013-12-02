@@ -2,6 +2,7 @@ package com.aforma.mewaiter.app;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
@@ -604,8 +605,8 @@ private void CheckMenu2() {
 			
 			
 			
-			
-			
+			//ordenaci—n de lista
+			Collections.sort(list2);
 			ArrayAdapter <String> dataAdapter2 = new ArrayAdapter(contextForDialog, android.R.layout.select_dialog_singlechoice, list2);			
 					
 			lstNume.setBackgroundColor( getResources().getColor(R.color.blanco));

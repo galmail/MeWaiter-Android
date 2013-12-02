@@ -115,6 +115,7 @@ public class Main extends Activity {
 				actionbar.setTitle("Pedido");				
 				
 				
+				
 				actionbar.setHomeAction(new ActionSettings());
 				actionbar.setDisplayHomeAsUpEnabled(true);
 				int a= actionbar.getActionCount();

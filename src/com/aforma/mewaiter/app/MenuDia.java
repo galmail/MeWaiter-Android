@@ -112,12 +112,13 @@ public class MenuDia extends Activity{
 		//id_subsection = (Integer)b.get("id_subsection");
 		String idr = null;
 		menu = new Menu(cantidad, idr, idr, idr, idr);
-		category_sid = id_menuS;
+		
 		
 		BD=new DBHelper(getApplicationContext());
 		
 		BD.open();
 		menu = BD.getMenu(id_menu);
+		category_sid = menu.getSid();
 		BD.close();
 		
 		sid = menu.getSid();
