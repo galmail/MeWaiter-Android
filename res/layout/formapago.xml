@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.aforma.mewaiter.app"
+    android:layout_width="wrap_content"
+    android:layout_height="350dp"
+    android:background="@drawable/fondo" >
+
+    <com.aforma.mewaiter.utils.ActionBar
+        android:id="@+id/actionBarPago"
+        style="@style/ActionBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/actionbar_background" >
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ab_transparent_mewaiter"
+            android:text="  &lt; Cancelar"
+            android:textSize="@dimen/small" />
+
+        <Button
+            android:id="@+id/btnOK"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ab_transparent_mewaiter"
+            android:text="Aceptar "
+            android:textSize="@dimen/small" />
+
+    </com.aforma.mewaiter.utils.ActionBar>
+
+    <EditText
+        android:id="@+id/edMoney"
+        style="@style/EditTextmystyle"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/actionBarPago"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:gravity="center_vertical|right"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionDone"
+        android:lines="1"
+        android:maxLines="1"
+        android:textSize="@dimen/medium" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/edNot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edMoney"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical|top"
+        android:imeOptions="actionDone"
+        android:hint="Notas"
+        android:inputType="textMultiLine"
+        android:lines="2"
+        android:maxLines="2" />
+
+    <TextView
+        android:id="@+id/txtnotas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionBarPago"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Cantidad:"
+        android:textColor="@color/actionbar_background_end"
+        android:textSize="@dimen/medium" />
+
+</RelativeLayout>

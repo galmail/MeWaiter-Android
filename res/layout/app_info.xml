@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical"
+    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        style="@style/AppBaseTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:minHeight="500dp" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="500dp"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical" >
+            
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="meWaiter"
+                android:textSize="@dimen/medium"
+                android:textStyle="bold" />
+              
+            <TextView
+                android:id="@+id/txtVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txtName"
+                android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Versión 1.0"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" />
+			<TextView
+                android:id="@+id/txtOS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txtVersion"
+                android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="OS"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" />
+              
+            <TextView
+                android:id="@+id/txtLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOS"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="http://tocarta"
+                android:textColor="@color/pressed_mewaiter"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" />
+
+           <TextView
+                android:id="@+id/txtNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
+                android:layout_below="@id/txtLink"
+                android:layout_marginTop="30dp"
+                android:text="Novedades"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/actionbar_background_end" />
+
+            <TextView
+                android:id="@+id/txtPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtNews"
+                android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Política de Privacidad"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+            
+            <TextView
+                android:id="@+id/txtTerm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPolicy"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Terminos de Uso"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+
+       
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

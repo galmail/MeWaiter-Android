@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:longClickable="true"
+    android:orientation="vertical" >
+     
+    <!-- Single ListItem -->
+     
+    <!-- Product Name -->
+
+    <TextView
+        android:id="@+id/item_list"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:drawableRight="@drawable/spinner_ab_pressed_mewaiter"
+        android:longClickable="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:tag="15"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="46dp"
+        android:background="@drawable/activated_background_holo_light" />
+ 
+</RelativeLayout>

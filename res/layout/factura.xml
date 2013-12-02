@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/factura"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideInset" >
+
+    <com.aforma.mewaiter.utils.ActionBar
+        android:id="@+id/actionBar1"
+        style="@style/ActionBar" >
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ab_transparent_mewaiter"
+            android:text="&lt; Volver"
+            android:textSize="@dimen/small" />
+
+        <Button
+            android:id="@+id/btnImp"
+            style="@style/Buttonmystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dp"
+            android:text="Ticket"
+            android:textSize="@dimen/small" />
+
+    </com.aforma.mewaiter.utils.ActionBar>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/actionBar1"
+        android:layout_marginBottom="50dp" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtMesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txttable"
+                android:layout_alignBottom="@+id/txttable"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:text="Mesa"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" >
+
+                <requestFocus />
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtMesa"
+                android:layout_alignRight="@+id/lstpedidos"
+                android:layout_below="@+id/txttable"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:text="Ticket"
+                android:textColor="@color/pressed_mewaiter"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txttable"
+                style="@android:attr/editTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="20dp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/azul2"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/descLay"
+                style="@style/AppBaseTheme"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDesc"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edammount"
+                style="@style/EditTextmystyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtTicket"
+                android:layout_centerHorizontal="true"
+                android:ems="4"
+                android:focusable="false"
+                android:gravity="center"
+                android:inputType="numberDecimal|text"
+                android:text="00.00"
+                android:textSize="@dimen/small"
+                android:textStyle="normal" />
+            
+            <TextView
+                android:id="@+id/txtPago"
+                style="@style/Buttonmystyle"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/txtTicket"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/ab_background_textured_mewaiter"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Formas de Pago (+)"
+                android:textColor="@color/blanco"
+                android:textSize="@dimen/small" />
+            
+ 			<LinearLayout
+ 			    android:id="@+id/pagoLay"
+ 			    style="@style/AppBaseTheme"
+ 			    android:layout_width="fill_parent"
+ 			    android:layout_height="wrap_content"
+ 			    android:layout_below="@id/txtPago"
+ 			    android:orientation="vertical" >
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtDesc"
+                style="@style/Buttonmystyle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/txtPago"
+                android:layout_alignRight="@+id/txtPago"
+                android:layout_below="@id/pagoLay"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ab_background_textured_mewaiter"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Descuentos (+)"
+                android:textColor="@color/blanco"
+                android:textSize="@dimen/small" />
+
+        </RelativeLayout>
+       
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCobrar"
+        style="@style/Buttonmystyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:text="Sacar Factura"
+        android:textSize="@dimen/small" />
+
+</RelativeLayout>

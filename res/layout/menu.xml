@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom|fill"
+    android:orientation="vertical"
+    android:overScrollMode="always"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/txtMesa2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@color/gris2"
+            android:text="Aperitivos"
+            android:textColor="@color/azul2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lstAperitivos"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtMesa2"
+        android:scrollbars="none"
+        android:textSize="15sp" >
+
+        </ListView> 
+
+        <TextView
+            android:id="@+id/txtPago"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lstAperitivos"
+            android:background="@color/gris2"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:text="Pastas del Mundo"
+            android:textColor="@color/azul2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+       <ListView
+           android:id="@+id/lstPastas"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/txtPago"
+           android:scrollbars="none"
+           android:textSize="15sp" >
+
+        </ListView> 
+
+        <TextView
+            android:id="@+id/tstSelect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lstPastas"
+            android:background="@color/gris2"
+            android:text="Carnes"
+            android:textColor="@color/azul2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/lstCarnes"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tstSelect"
+            android:scrollbars="none"
+            android:textSize="15sp" >
+
+        </ListView> 
+
+  
+
+    
+</LinearLayout>

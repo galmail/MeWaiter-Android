@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppBaseTheme"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="500dp"
+    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        style="@style/AppBaseTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:minHeight="500dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="500dp" >
+
+            <TextView
+                android:id="@+id/txtNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextView03"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                android:text="Nombre"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/txtApellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtNombre"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:text="Apellidos"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/ab_background_textured_mewaiter"
+                android:gravity="center"
+                android:text="Ajustes"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blanco"
+                android:textSize="@dimen/small"
+                android:textStyle="normal" />
+
+            <ToggleButton
+                android:id="@+id/ToggleButton01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/toggleButton1"
+                android:layout_alignRight="@+id/toggleButton1"
+                android:layout_below="@id/toggleButton1"
+                android:layout_marginTop="50dp"
+                android:text="ToggleButton" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtPago"
+                android:layout_alignBottom="@+id/txtPago"
+                android:layout_alignLeft="@+id/btnSincro"
+                android:layout_alignRight="@+id/btnSincro"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:text="ToggleButton" />
+
+            <Button
+                android:id="@+id/btnSincro"
+                style="@style/Buttonmystyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_toRightOf="@id/txtCantidad"
+                android:maxHeight="50dp"
+                android:maxWidth="50dp"
+                android:text="Actualizar"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/txtPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnSincro"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:minWidth="100dp"
+                android:text="Usar Conexión 3G"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/ToggleButton01"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ab_background_textured_mewaiter"
+                android:gravity="center"
+                android:text="Mis Datos"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blanco"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/tstSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtPago"
+                android:layout_alignTop="@+id/ToggleButton01"
+                android:minWidth="100dp"
+                android:text="Notificaciones Push"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/txtCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtPago"
+                android:layout_alignRight="@+id/tstSelect"
+                android:layout_alignTop="@+id/btnSincro"
+                android:minWidth="100dp"
+                android:text="Actualizar Carta"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/small"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

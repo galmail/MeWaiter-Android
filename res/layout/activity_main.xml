@@ -1,0 +1,58 @@
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidingPane"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" > 
+
+	    <ListView
+	        android:id="@+id/optionList"
+	        android:layout_width="250dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="20dp"
+	        android:background="@android:color/darker_gray"
+	        android:choiceMode="singleChoice" />
+	     
+	    <FrameLayout
+	        android:id="@+id/fragmentContainer"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@android:drawable/bottom_bar" >
+	        
+	        <LinearLayout
+	            style="@style/AppBaseTheme"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical" >
+
+    <com.aforma.mewaiter.utils.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        android:background="@android:drawable/bottom_bar" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+	    <!--   <LinearLayout
+	          android:layout_width="fill_parent"
+	          android:layout_height="fill_parent"
+	          android:orientation="vertical"
+	          android:paddingBottom="10dp"
+	          android:paddingLeft="10dp"
+	          android:paddingRight="10dp"
+	          android:paddingTop="10dp" >-->
+
+	    <include
+	          android:id="@+id/inc_pedido"
+	          android:layout_width="match_parent"
+	          android:layout_height="2000dp"
+	          layout="@layout/pedidos" /> 
+	    
+
+    </ScrollView>    
+
+</LinearLayout>	        
+</FrameLayout>
+	   
+</android.support.v4.widget.SlidingPaneLayout>
+    

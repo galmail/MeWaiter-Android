@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="500dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical"
+    android:visibility="visible" >
+
+  <!--   <ScrollView
+     android:id="@+id/scrollView1"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/actionBarMenu" >-->
+    
+      	<include
+      	    android:id="@+id/layout"
+      	    android:layout_width="match_parent"
+      	    android:layout_height="wrap_content"
+      	    android:layout_below="@+id/actionBarMenu"
+      	    layout="@layout/menusec" />
+     
+<!--  </ScrollView>-->
+
+ <com.aforma.mewaiter.utils.ActionBar
+     android:id="@+id/actionBarMenu"
+     style="@style/ActionBar"
+     android:background="@drawable/actionbar_background" >
+
+     <ImageButton
+         android:id="@+id/btnPedidoMenu"
+         style="@style/ActionBarItem"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:background="@android:drawable/ic_menu_agenda"
+         android:textColor="@color/blanco" />
+
+     <Button
+         android:id="@+id/btnVolverMenu"
+         style="@style/Buttonmystyle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:background="@drawable/ab_transparent_mewaiter"
+         android:text=" &lt; Volver"
+         android:textSize="@dimen/small" />
+
+ </com.aforma.mewaiter.utils.ActionBar>
+
+</RelativeLayout>
