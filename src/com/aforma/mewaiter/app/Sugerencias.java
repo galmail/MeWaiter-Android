@@ -14,7 +14,7 @@ import com.aforma.mewaiter.utils.ActionBar;
 
 /**
 * 
-* La Activity Sugerencias, se utiliza para mostrar las sugerencias del día en una pantalla, la cual es cargada al hacer Login o cuando se presiona un botón de actualizar.
+* La Activity Sugerencias, se utiliza para mostrar las sugerencias del d√≠a en una pantalla, la cual es cargada al hacer Login o cuando se presiona un bot√≥n de actualizar.
 *
 * 
 */
@@ -35,7 +35,7 @@ public class Sugerencias extends Activity {
 	 // Draw ActionBar
 	   
 	ActionBar actionbar = (ActionBar) this.findViewById(R.id.actionBar5);
-	actionbar.setTitle("Sugerencias del Día");	
+	actionbar.setTitle("Sugerencias del D√≠a");	
 	
 	// Boton volver
 	Button btnVolver = (Button) this.findViewById(R.id.btnBack);
@@ -43,7 +43,8 @@ public class Sugerencias extends Activity {
         public void onClick(View v) {
 	
         	finish();
-        	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+        	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+        	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         }
 	
 	});  

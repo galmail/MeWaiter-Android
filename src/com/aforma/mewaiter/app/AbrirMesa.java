@@ -40,9 +40,9 @@ import com.aforma.mewaiter.utils.JSONParser;
 /**
  * Esta activity muestra el layout abrirm.xml e implementa 
  * toda la funcionalidad de abrir la mesa en el POS 
- * o sólo seleccionarla.
+ * o s√≥lo seleccionarla.
  * 
- * No tiene parámetros de entrada. 
+ * No tiene par√°metros de entrada. 
  * Usa el valor de Main.m_Text (nombre de mesa)
  *  
  */
@@ -110,13 +110,14 @@ public void onCreate(Bundle savedInstanceState) {
 	            public void onClick(View v) {
 			
 	            	finish();	
+	            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 	            	
-	            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 	            }
 			
 			});  
 			
-			//Botón OK
+			//Bot√≥n OK
 			Button btnOK = (Button) this.findViewById(R.id.btnOK);
 			btnOK.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
@@ -168,7 +169,7 @@ public void onCreate(Bundle savedInstanceState) {
 									    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " La mesa esta abierta OK. ", Toast.LENGTH_LONG).show();
 									    	break;
 									    case 4:
-									    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " ERROR Conexión al POS. " + OK, Toast.LENGTH_LONG).show();
+									    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " ERROR Conexi√≥n al POS. " + OK, Toast.LENGTH_LONG).show();
 									    	break;
 							    	}
 							    	Main.agregado = true;	
@@ -177,11 +178,11 @@ public void onCreate(Bundle savedInstanceState) {
 								    }
 								    else
 								    {
-								    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " Ya está abierta. ", Toast.LENGTH_LONG).show();	
+								    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " Ya est√° abierta. ", Toast.LENGTH_LONG).show();	
 								    }
 							    }else
 							    {
-							    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " ERROR Conexión al POS. ", Toast.LENGTH_LONG).show();	
+							    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " ERROR Conexi√≥n al POS. ", Toast.LENGTH_LONG).show();	
 							    	//finish();
 							    	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 							    }
@@ -263,7 +264,7 @@ private void CheckMenu() {
 					
 					if (result2 == null)
 					{
-						temporal = result + " Mesa " + "<número>";
+						temporal = result + " Mesa " + "<n√∫mero>";
 					}
 					
 					if (result != null && result2 != null)
@@ -303,7 +304,7 @@ private void CheckMenu() {
 					
 					if (result2 == null)
 					{
-						temporal = result + " Mesa " + "<número>";
+						temporal = result + " Mesa " + "<n√∫mero>";
 					}
 					
 					if (result != null && result2 != null)
@@ -345,7 +346,7 @@ private void CheckMenu() {
 				@Override
 				public void onClick(View v) {
 					
-					//if  (!temporal.contains("null") || !temporal.contains("<zona>") || !temporal.contains("<número>"))
+					//if  (!temporal.contains("null") || !temporal.contains("<zona>") || !temporal.contains("<n√∫mero>"))
 						//Main.m_Text = temporal;
 					
 					//txtmesa2.setText(Main.m_Text);
@@ -426,7 +427,7 @@ public static void obtenerMesas() {
 				}
 			}else
 			{
-				Toast.makeText(Main.contextForDialog,"Error de conexión", Toast.LENGTH_LONG).show();
+				Toast.makeText(Main.contextForDialog,"Error de conexi√≥n", Toast.LENGTH_LONG).show();
 			}
 			
 	}
@@ -585,7 +586,7 @@ private void CheckMenu2() {
 					
 					if (result2 == null)
 					{
-						temporal = result + " Mesa " + "<número>";
+						temporal = result + " Mesa " + "<n√∫mero>";
 					}
 					
 					if (result != null && result2 != null)
@@ -593,7 +594,7 @@ private void CheckMenu2() {
 						temporal =result + " Mesa " + result2;
 					}
 					
-					//if  (!temporal.contains("null") || !temporal.contains("<zona>") || !temporal.contains("<número>"))
+					//if  (!temporal.contains("null") || !temporal.contains("<zona>") || !temporal.contains("<n√∫mero>"))
 						//Main.m_Text = temporal;
 					
 					txtmesa2.setText(temporal);
@@ -605,7 +606,7 @@ private void CheckMenu2() {
 			
 			
 			
-			//ordenación de lista
+			//ordenaci√≥n de lista
 			Collections.sort(list2);
 			ArrayAdapter <String> dataAdapter2 = new ArrayAdapter(contextForDialog, android.R.layout.select_dialog_singlechoice, list2);			
 					
@@ -630,15 +631,14 @@ private void CheckMenu2() {
 					
 					if (result2 == null)
 					{
-						temporal = result + " Mesa " + "<número>";
+						temporal = result + " Mesa " + "<n√∫mero>";
 					}
 					
 					if (result != null && result2 != null)
 					{
 						temporal =result + " Mesa " + result2;
 					}
-					//if  (!temporal.contains("null") || !temporal.contains("<zona>") || !temporal.contains("<número>"))
-						//Main.m_Text = temporal;
+					
 					
 					txtmesa2.setText(temporal);
 					
@@ -681,7 +681,7 @@ private void CheckMenu2() {
  
 	
 /**
- * Muestra el menu option (presionando botón opciones android 
+ * Muestra el menu option (presionando bot√≥n opciones android 
  */	
 public boolean onCreateOptionsMenu(Menu menu) {
 		

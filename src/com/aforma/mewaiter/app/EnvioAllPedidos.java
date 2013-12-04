@@ -19,7 +19,7 @@ import com.aforma.mewaiter.utils.JSONSendPOST;
  * Clase Enviar All Pedidos: Recoge todos los pedidos pendientes y los va enviando al POS uno a uno
  * 
  * Si no se consigue enviar aparece un mensaje (Toast) de error.
- * Si se consigue enviar aparece un mensaje (Toast) de env’o correcto por mesa.
+ * Si se consigue enviar aparece un mensaje (Toast) de envÃ­o correcto por mesa.
  *
  */
 public class EnvioAllPedidos  {
@@ -30,7 +30,7 @@ public class EnvioAllPedidos  {
 		int OK=0;
 		public int performAction(){
 			AlertDialog.Builder builder = new AlertDialog.Builder(Main.contextForDialog);
-        	builder.setMessage("ÀDeseas reenviar ahora?")        	        	
+        	builder.setMessage("Â¿Deseas reenviar ahora?")        	        	
         	.setTitle("Enviar Pedidos Pendientes")
         	.setIcon(android.R.drawable.ic_menu_send);
         	

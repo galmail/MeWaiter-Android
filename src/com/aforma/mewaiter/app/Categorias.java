@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 /**
  * 
- * Es la clase con la información a mostrar en la lista de Settings 
+ * Es la clase con la informaci√≥n a mostrar en la lista de Settings 
  * en el menu slider.
  *
  */

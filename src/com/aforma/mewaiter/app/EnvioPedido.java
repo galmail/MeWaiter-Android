@@ -31,7 +31,7 @@ public class EnvioPedido extends AbstractAction {
 		@Override
 		public void performAction(View view){
 			AlertDialog.Builder builder = new AlertDialog.Builder(Main.contextForDialog);
-        	builder.setMessage("ÀDeseas enviar el pedido?")        	        	
+        	builder.setMessage("Â¿Deseas enviar el pedido?")        	        	
         	.setTitle("Enviar Pedido")
         	.setIcon(android.R.drawable.ic_menu_send);
         	

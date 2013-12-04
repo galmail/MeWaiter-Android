@@ -2,7 +2,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Menu, se utiliza para recoger todos los datos del menú y realizar las operaciónes necesarias.
+* La Clase Menu, se utiliza para recoger todos los datos del men√∫ y realizar las operaciones necesarias.
 *
 * 
 */

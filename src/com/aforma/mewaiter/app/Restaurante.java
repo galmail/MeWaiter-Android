@@ -2,7 +2,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Restaurante, se utiliza para recoger todos los datos del Restaurante y realizar las operaci—nes necesarias.
+* La Clase Restaurante, se utiliza para recoger todos los datos del Restaurante y realizar las operaciones necesarias.
 *
 * 
 */

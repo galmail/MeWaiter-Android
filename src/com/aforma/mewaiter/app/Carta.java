@@ -21,7 +21,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 /**
  *
- * Esta clase muestra la activity de la carta, valida para menu, seccion y subsección
+ * Esta clase muestra la activity de la carta, valida para menu, seccion y subsecci√≥n
  * Desde esta Activity, se habren el resto de los tipos de carta. 
  */
 public class Carta extends Activity{
@@ -129,8 +129,9 @@ public class Carta extends Activity{
 	            public void onClick(View v) {
 			
 	            	finish();
-	            	//overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-	            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+	            	
+	            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 	            }
 			
 			});  

@@ -56,7 +56,7 @@ import com.aforma.mewaiter.utils.DBHelper;
 
 /**
  * 
- * Es la activity principal de la App, donde se maneja todo lo dem噑.
+ * Es la activity principal de la App, donde se maneja todo lo dem谩s.
  * 
  *
  */
@@ -77,7 +77,7 @@ public class Main extends Activity {
 	public static String sid_table;
 	public static List<String> list = new ArrayList<String>();
 	public static List<String> list2 = new ArrayList<String>();
-	public String fecha = "騦tima Actualizaci梟: ";
+	public String fecha = "脷ltima Actualizaci贸n: ";
 	public static SeparatedListAdapter adapter;
 	public static ListView journalListView;
 	public ArrayList<Order> pendientes = new ArrayList<Order>();
@@ -93,11 +93,14 @@ public class Main extends Activity {
 			
 			if ( m_Text != "")
 			{
-				String[] separated = (m_Text).split(" ");		
-				String mesa = separated[2]; // Contine el numero de la mesa
+				
+				String[] separated = (Main.m_Text).split(" Mesa ");
+				String zona = separated[0]; // Contiene el n煤mero de mesa
+				String mesa = separated[1]; // Contiene el n煤mero de mesa
+						
 				if (mesa != null)
 					id_table = Integer.parseInt(mesa);
-				String zona = separated[0];
+				
 			}
 			DB = new DBHelper(getApplicationContext());	
 			
@@ -195,7 +198,7 @@ public class Main extends Activity {
 	
 	
 	/** OnCreate
-	 * Funci梟 que se ejecuta en la creaci梟 de la activity: main_activity 
+	 * Funci贸n que se ejecuta en la creaci贸n de la activity: main_activity 
 	 * 
 	 */
 	 
@@ -349,7 +352,8 @@ public void pedidos() {
 	
 	
 	ListView my_list = (ListView) findViewById(R.id.lstpedidos);
-	RelativeLayout pedidos = (RelativeLayout) findViewById(R.id.pedidos);
+	my_list.setVisibility(View.VISIBLE);
+	//RelativeLayout pedidos = (RelativeLayout) findViewById(R.id.pedidos);
 	TextView txtempty =  (TextView) findViewById(R.id.textEmpty);
 	Button btnAdd = (Button)  findViewById(R.id.btnAgrega);
 	
@@ -366,13 +370,13 @@ public void pedidos() {
 		actionbar.removeAllActions();
 		actionbar.refreshDrawableState();
 		
-		my_list.setVisibility(ListView.GONE);
+		//my_list.setVisibility(ListView.GONE);
 		txtempty.setVisibility(txtempty.VISIBLE);
 		
 		
 	}else
 	{
-		my_list.setVisibility(View.VISIBLE);
+		//my_list.setVisibility(View.VISIBLE);
 		txtempty.setVisibility(txtempty.INVISIBLE);
 		
 		actionbar.addAction(new EnvioPedido());
@@ -395,7 +399,7 @@ private void checkCarta() {
 			public void onClick(View v) {
 				if (m_Text.isEmpty())
 				{
-					Toast.makeText(getBaseContext(), "Selecciona mesa antes de a朼dir un pedido.", Toast.LENGTH_LONG).show(); 
+					Toast.makeText(getBaseContext(), "Selecciona mesa antes de a帽adir un pedido.", Toast.LENGTH_LONG).show(); 
 				}
 				else
 				{	
@@ -497,7 +501,7 @@ static void checkSegundos() {
 	        	   Login.jsonSegundos=Login.getMarcharSegundos();
 	        	   if (Login.jsonSegundos == null)
 	        	   {
-	        		   Toast.makeText(Main.contextForDialog, "ERROR. No se ha podido env抋 (Marchar Segundos)", Toast.LENGTH_LONG).show();
+	        		   Toast.makeText(Main.contextForDialog, "ERROR. No se ha podido enviar (Marchar Segundos)", Toast.LENGTH_LONG).show();
 	        		   
 	        	   }
 	        	   else
@@ -509,7 +513,7 @@ static void checkSegundos() {
 	        		   }
 	        		   else
 	        		   {
-	        			   Toast.makeText(Main.contextForDialog, "ERROR. No se ha podido env抋 (Marchar Segundos)", Toast.LENGTH_LONG).show();
+	        			   Toast.makeText(Main.contextForDialog, "ERROR. No se ha podido enviar (Marchar Segundos)", Toast.LENGTH_LONG).show();
 	        		   }
 	        		   
 	        	   }
@@ -584,7 +588,7 @@ public static int openTable(String zona, String mesa, String accion, String mwke
 		}
 	}
 	
-	return result; // 1 Open, 2 Close, 3 error 4 no funciona la conexi梟
+	return result; // 1 Open, 2 Close, 3 error 4 no funciona la conexi贸n
 	}else
 	{
 		return 4;
@@ -640,7 +644,7 @@ public static int checkopenTable(String zona, String mesa, String mwkey, String 
 		{
 				result = 2; 
 		}
-		return result; // 1 Open, 2 error 3 no funciona la conexi梟
+		return result; // 1 Open, 2 error 3 no funciona la conexi贸n
 	}else
 	{
 		return 3;
@@ -971,7 +975,7 @@ public void showSlider() {
         		
         		if (m_Text.isEmpty())
 				{
-					Toast.makeText(getBaseContext(), "Selecciona mesa antes de a朼dir un pedido.", Toast.LENGTH_LONG).show(); 
+					Toast.makeText(getBaseContext(), "Selecciona mesa antes de a帽adir un pedido.", Toast.LENGTH_LONG).show(); 
 				}
 				else
 				{	
@@ -1101,173 +1105,6 @@ public void pedidosRellenos() {
 			
 	}
 
-private void relleno() {
-	
-	// Relleno pedido
-	
-	final ListView lv = (ListView)findViewById(R.id.lstpedidos);
-    
-    final ArrayList<Listado> list = obtenerItems1();
-    
-    
-         
-    final AdapterItems adapter;
-    adapter= new AdapterItems(this, list);    
-   
-    lv.setAdapter(adapter); 
-    if (lv.getCount() != 0)
-    {
-    	Helper.getListViewSize(lv); 
-    	
-    }
-    
-    final Button btnAdd = (Button) findViewById(R.id.btnAgrega);
-    if ( Main.m_Text.isEmpty() || Main.m_Text == null)
-    {
-    	btnAdd.setVisibility(Button.INVISIBLE);
-    }
-    else
-    {
-    	btnAdd.setVisibility(Button.VISIBLE);
-    }
-    
-    final TextView txtvacio =  (TextView) findViewById(R.id.textEmpty);
-    final RelativeLayout pedidos = (RelativeLayout) findViewById(R.id.pedidos);
-    if(adapter.getCount()!=0){
-    	
-    		actionbar.removeAllActions();
-    		actionbar.addAction(new EnvioPedido());
-    		actionbar.refreshDrawableState();
-    		txtvacio.setVisibility(TextView.INVISIBLE);
-    		lv.setVisibility(ListView.VISIBLE);
-    		//pedidos.setVisibility(RelativeLayout.VISIBLE);
-    		
-    		
-    		
-    	
-       lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
- 	   @Override
-		public void onItemClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				
-				
- 		   		Intent i = new Intent(getBaseContext(), DetalleOrder.class);
-                Listado selectedFromList = (Listado)(lv.getItemAtPosition(arg2));
-            	int ident = selectedFromList.id;
-            	i.putExtra("id_order", ident);
-                startActivity(i);
-                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
-            };
-           });
-    
-    
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            
-        	public boolean onItemLongClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-             
-        		
-            	Listado selectedFromList = (Listado)(lv.getItemAtPosition(myItemInt));
-            	final int I = myItemInt;
-            	final int ident = selectedFromList.id;
-            	
-              
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContexto);
-            	builder.setMessage("繢esea eliminar el plato: " + selectedFromList + " ?")        	        	
-            	.setTitle("Eliminar Plato")
-            	.setIcon(android.R.drawable.ic_menu_send);
-            	
-            	
-            	//Add the buttons
-            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                	
-                	DB.open();
-                	String identificador=String.valueOf(ident);
-                	long result = DB.removeOrderById(identificador);
-                	ArrayList<Ordermods> ordermods = DB.getOrdermodsByID(ident);
-                	long result2 = DB.removeOrderModsByID(ident);
-                	long result3 = DB.removeDiscountSelByID(ident);
-                	DB.close();
-                	
-                	if (result > 0 || (result2 > 0 && ordermods.size() != 0))
-                	{
-                		
-	                    // User clicked OK button
-	                	AlertDialog.Builder builder2 = new AlertDialog.Builder(mContexto);
-	                	builder2.setMessage("Eliminado OK")        	        	
-	                	.setTitle("Eliminar Plato")
-	                	.setIcon(android.R.drawable.ic_menu_send);
-	                	
-	                	
-	                	builder2.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
-	    					
-	    					@Override
-	    					public void onClick(DialogInterface dialog, int which) {
-	    						
-	    						relleno();
-	    						
-	    					}
-							
-	    				});
-	                	builder2.create();
-	                	builder2.show();
-                		
-                	
-                		}else
-	                	{
-	                		// User clicked OK button
-		                	AlertDialog.Builder builder2 = new AlertDialog.Builder(mContexto);
-		                	builder2.setMessage("Eliminado Error")        	        	
-		                	.setTitle("Eliminar Plato")
-		                	.setIcon(android.R.drawable.ic_menu_send);
-		                	
-		                	
-		                	builder2.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
-		    					
-		    					@Override
-		    					public void onClick(DialogInterface dialog, int which) {
-		    						
-		    						relleno();
-		    						
-		    					}
-		
-								
-		    				});
-		                	builder2.create();
-		                	builder2.show();
-	                	}
-                	}
-                });
-            	builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    	
-                    }
-                });
-            	builder.create();
-            	builder.show();	
-               
-				return true;
-                
-            }
-        });
-    
-        
-        
-    }
-else{
-       
-       txtvacio.setVisibility(TextView.VISIBLE);
-	   lv.setVisibility(ListView.GONE);
-	   
-       actionbar.removeAllActions();
-   	   actionbar.refreshDrawableState();
-       
-       
-} 
-   
-}
 private ArrayList<Listado> obtenerItems1() {
     ArrayList<Listado> items2 = new ArrayList<Listado>();
     
@@ -1386,8 +1223,8 @@ public void restaurante() {
 				if ( Login.jsonRestaurante == null  || Login.jsonModifiers == null )
 				{
 					final AlertDialog alertDialog = new AlertDialog.Builder(contextForDialog).create();
-					alertDialog.setTitle("Sincronizaci梟");
-					alertDialog.setMessage("Fallo en la sincronizaci梟 繢eseas reintentar?");
+					alertDialog.setTitle("Sincronizaci贸n");
+					alertDialog.setMessage("Fallo en la sincronizaci贸n 驴Deseas reintentar?");
 					alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						
@@ -1486,8 +1323,8 @@ public static void tratarCarta() {
 							if ( Login.jsonRestaurante == null )
 							{
 								final AlertDialog alertDialog = new AlertDialog.Builder(contextForDialog).create();
-								alertDialog.setTitle("Sincronizaci梟");
-								alertDialog.setMessage("Fallo en la sincronizaci梟 繢eseas reintentar?");
+								alertDialog.setTitle("Sincronizaci贸n");
+								alertDialog.setMessage("Fallo en la sincronizaci贸n 驴Deseas reintentar?");
 								alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int which) {
 									
@@ -2325,7 +2162,7 @@ btnSugerencias.setOnClickListener(new  View.OnClickListener() {
 		Login.jsonSugerencias = Login.getSugerencias();
 		Login.sugerencias = tratarSugerencias(Login.jsonSugerencias);
 		
-		fecha = "騦tima Actualizaci梟: " + formattedDate;
+		fecha = "脷ltima Actualizaci贸n: " + formattedDate;
 		txtFecha.setText(fecha);
 		sugerencias();
 		
@@ -2352,7 +2189,7 @@ final ListView lv = (ListView) Main.activity.findViewById(R.id.lstpedidos);
 	
 	txtempty.setVisibility(txtempty.VISIBLE);
 	
-	lv.setVisibility(ListView.GONE);
+	//lv.setVisibility(ListView.GONE);
 	btnAdd.setVisibility(Button.INVISIBLE);
 	
 	final TextView txtmesa = (TextView) Main.activity.findViewById(R.id.txtMesa);
@@ -2361,6 +2198,173 @@ final ListView lv = (ListView) Main.activity.findViewById(R.id.lstpedidos);
   
 }
 
+private void relleno() {
+	
+	// Relleno pedido
+	
+	final ListView lv = (ListView)findViewById(R.id.lstpedidos);
+    
+    final ArrayList<Listado> list = obtenerItems1();
+    
+    
+         
+    final AdapterItems adapter;
+    adapter= new AdapterItems(this, list);    
+   
+    lv.setAdapter(adapter); 
+    if (lv.getCount() != 0)
+    {
+    	Helper.getListViewSize(lv); 
+    	
+    }
+    
+    final Button btnAdd = (Button) findViewById(R.id.btnAgrega);
+    if ( Main.m_Text.isEmpty() || Main.m_Text == null)
+    {
+    	btnAdd.setVisibility(Button.INVISIBLE);
+    }
+    else
+    {
+    	btnAdd.setVisibility(Button.VISIBLE);
+    }
+    
+    final TextView txtvacio =  (TextView) findViewById(R.id.textEmpty);
+    final RelativeLayout pedidos = (RelativeLayout) findViewById(R.id.pedidos);
+    if(adapter.getCount()!=0){
+    	
+    		actionbar.removeAllActions();
+    		actionbar.addAction(new EnvioPedido());
+    		actionbar.refreshDrawableState();
+    		txtvacio.setVisibility(TextView.INVISIBLE);
+    		lv.setVisibility(ListView.VISIBLE);
+    		//pedidos.setVisibility(RelativeLayout.VISIBLE);
+    		
+    		
+    		
+    	
+       lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+ 	   @Override
+		public void onItemClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+				
+ 		   		Intent i = new Intent(getBaseContext(), DetalleOrder.class);
+                Listado selectedFromList = (Listado)(lv.getItemAtPosition(arg2));
+            	int ident = selectedFromList.id;
+            	i.putExtra("id_order", ident);
+                startActivity(i);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+            };
+           });
+    
+    
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            
+        	public boolean onItemLongClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
+             
+        		
+            	Listado selectedFromList = (Listado)(lv.getItemAtPosition(myItemInt));
+            	final int I = myItemInt;
+            	final int ident = selectedFromList.id;
+            	
+              
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContexto);
+            	builder.setMessage("驴Desea eliminar el plato: " + selectedFromList + " ?")        	        	
+            	.setTitle("Eliminar Plato")
+            	.setIcon(android.R.drawable.ic_menu_send);
+            	
+            	
+            	//Add the buttons
+            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                	
+                	DB.open();
+                	String identificador=String.valueOf(ident);
+                	long result = DB.removeOrderById(identificador);
+                	ArrayList<Ordermods> ordermods = DB.getOrdermodsByID(ident);
+                	long result2 = DB.removeOrderModsByID(ident);
+                	long result3 = DB.removeDiscountSelByID(ident);
+                	DB.close();
+                	
+                	if (result > 0 || (result2 > 0 && ordermods.size() != 0))
+                	{
+                		
+	                    // User clicked OK button
+	                	AlertDialog.Builder builder2 = new AlertDialog.Builder(mContexto);
+	                	builder2.setMessage("Eliminado OK")        	        	
+	                	.setTitle("Eliminar Plato")
+	                	.setIcon(android.R.drawable.ic_menu_send);
+	                	
+	                	
+	                	builder2.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+	    					
+	    					@Override
+	    					public void onClick(DialogInterface dialog, int which) {
+	    						
+	    						relleno();
+	    						
+	    					}
+							
+	    				});
+	                	builder2.create();
+	                	builder2.show();
+                		
+                	
+                		}else
+	                	{
+	                		// User clicked OK button
+		                	AlertDialog.Builder builder2 = new AlertDialog.Builder(mContexto);
+		                	builder2.setMessage("Eliminado Error")        	        	
+		                	.setTitle("Eliminar Plato")
+		                	.setIcon(android.R.drawable.ic_menu_send);
+		                	
+		                	
+		                	builder2.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+		    					
+		    					@Override
+		    					public void onClick(DialogInterface dialog, int which) {
+		    						
+		    						relleno();
+		    						
+		    					}
+		
+								
+		    				});
+		                	builder2.create();
+		                	builder2.show();
+	                	}
+                	}
+                });
+            	builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    	
+                    }
+                });
+            	builder.create();
+            	builder.show();	
+               
+				return true;
+                
+            }
+        });
+    
+        
+        
+    }
+else{
+       
+       txtvacio.setVisibility(TextView.VISIBLE);
+	   lv.setVisibility(ListView.GONE);
+	   
+       actionbar.removeAllActions();
+   	   actionbar.refreshDrawableState();
+       
+       
+} 
+   
+}
 
 
 			

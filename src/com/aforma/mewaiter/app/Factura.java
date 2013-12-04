@@ -26,9 +26,9 @@ import android.widget.Toast;
 
 /**
  * 
- * La activity Factura muestra la pantalla impresi�n/ cobrar factura, con los payments y descuentos asociados.
+ * La activity Factura muestra la pantalla impresión/ cobrar factura, con los payments y descuentos asociados.
  * 
- * Envia la factura de una mesa concreta recogida del par�mentro Main.m_Text que contiene el nombre de la mesa.
+ * Envia la factura de una mesa concreta recogida del parámentro Main.m_Text que contiene el nombre de la mesa.
  * 
  */
 public class Factura extends Activity{
@@ -66,7 +66,8 @@ public class Factura extends Activity{
             public void onClick(View v) {
 		
             	finish();
-            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
 		
 		});  
@@ -184,9 +185,9 @@ public class Factura extends Activity{
 		{
 			txtmesa.setText(Main.m_Text.toString());
 			final String name = Main.m_Text.toString();
-			String[] separated = (Main.m_Text).split(" ");		
-			numero = separated[2]; // Contine el numero de la mesa
-			zona = separated[0];
+			String[] separated = (Main.m_Text).split(" Mesa ");
+			String zona = separated[0]; // Contiene el número de mesa
+			String mesa = separated[1]; // Contiene el número de mesa
 		}else
 		{
 			Toast.makeText(this, "Debes seleccionar una mesa.", Toast.LENGTH_LONG).show();

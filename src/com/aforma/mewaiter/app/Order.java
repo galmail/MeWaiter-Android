@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
 * 
-* La Clase Order, se utiliza para recoger todos los datos del pedido y realizar las operaci—nes necesarias.
+* La Clase Order, se utiliza para recoger todos los datos del pedido y realizar las operaciones necesarias.
 *
 * 
 */

@@ -1,7 +1,7 @@
 package com.aforma.mewaiter.app;
 /**
 * 
-* La Clase Settings, se utiliza para recoger todos los datos de configuración y realizar las operaciónes necesarias.
+* La Clase Settings, se utiliza para recoger todos los datos de configuraci√≥n y realizar las operaciones necesarias.
 *
 * 
 */

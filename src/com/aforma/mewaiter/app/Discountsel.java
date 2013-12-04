@@ -4,7 +4,7 @@ package com.aforma.mewaiter.app;
 
 /**
  * 
- * Clase descuento seleccionado: maneja cada uno de los descuentos seleccionados para añadir al pedido o ticket, sus propiedades y eventos.
+ * Clase descuento seleccionado: maneja cada uno de los descuentos seleccionados para a√±adir al pedido o ticket, sus propiedades y eventos.
  *
  */
 public class Discountsel {
@@ -19,7 +19,7 @@ public class Discountsel {
 
 	
 	/**
-	 * Clase descuento seleccionado: maneja cada uno de los descuentos seleccionados para añadir al pedido o ticket, sus propiedades y eventos.
+	 * Clase descuento seleccionado: maneja cada uno de los descuentos seleccionados para a√±adir al pedido o ticket, sus propiedades y eventos.
 	 * 
 	 * @param sid
 	 * @param id_table

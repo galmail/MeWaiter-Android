@@ -160,7 +160,7 @@ public class Login extends Activity implements OnClickListener {
 	
 	/**
 	 * 
-	 * No utilizado en esta version esta función se realiza el la activity Main.
+	 * No utilizado en esta version esta funci√≥n se realiza el la activity Main.
 	 * 
 	 */
 	public void restaurante() {
@@ -207,8 +207,8 @@ public class Login extends Activity implements OnClickListener {
 								if ( jsonRestaurante == null  || jsonModifiers == null)
 								{
 									final AlertDialog alertDialog = new AlertDialog.Builder(LoginContext).create();
-									alertDialog.setTitle("Sincronización");
-									alertDialog.setMessage("Fallo en la sincronización ¿Deseas reintentar?");
+									alertDialog.setTitle("Sincronizaci√≥n");
+									alertDialog.setMessage("Fallo en la sincronizaci√≥n ¬øDeseas reintentar?");
 									alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int which) {
 										
@@ -257,7 +257,7 @@ public class Login extends Activity implements OnClickListener {
 /**
  * 
  * Este metodo hace el tratamiento del json recibido por el servicio REST get_restaurant y lo guarda en estructuras de datos 
- * posteriormente se llamará a cargarBD para guardar los datos en la BBDD SQLite.
+ * posteriormente se llamar√° a cargarBD para guardar los datos en la BBDD SQLite.
  * 
  */
 	public static void tratarCarta() {
@@ -310,8 +310,8 @@ public class Login extends Activity implements OnClickListener {
 								if ( jsonRestaurante == null )
 								{
 									final AlertDialog alertDialog = new AlertDialog.Builder(LoginContext).create();
-									alertDialog.setTitle("Sincronización");
-									alertDialog.setMessage("Fallo en la sincronización ¿Deseas reintentar?");
+									alertDialog.setTitle("Sincronizaci√≥n");
+									alertDialog.setMessage("Fallo en la sincronizaci√≥n ¬øDeseas reintentar?");
 									alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int which) {
 										
@@ -513,7 +513,7 @@ public class Login extends Activity implements OnClickListener {
 					
 				}
 				
-				return result;	// Sino se ha añadido en BBDD el login devuelve -1, sino 1.
+				return result;	// Sino se ha a√±adido en BBDD el login devuelve -1, sino 1.
 					
 	}
 	

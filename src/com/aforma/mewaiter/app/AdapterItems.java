@@ -16,7 +16,7 @@ import android.widget.TextView;
 /**
  * 
  * Esta clase maneja la Listview de lineas del pedido hecha a medida, 
- * que muestrar el número de platos en un icono con un circulo.
+ * que muestrar el n√∫mero de platos en un icono con un circulo.
  */
 public class AdapterItems  extends BaseAdapter {
 
@@ -73,7 +73,7 @@ public class AdapterItems  extends BaseAdapter {
 	   
 	    image.setText(Integer.toString(item.numero));
 	    notas.setText(item.comentarios); 
-	    price.setText(item.price + " €");
+	    price.setText(item.price + " ‚Ç¨");
 	    TextView descripcion = (TextView) vi.findViewById(R.id.item_list);
 	    descripcion.setText(item.name);   
 	    

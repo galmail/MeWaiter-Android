@@ -96,7 +96,7 @@ public class ActionBar extends RelativeLayout implements OnClickListener {
      * @param resId The drawable resource id
      */
     public void setHomeLogo(int resId) {
-        // TODO: Add possibility to add an IntentAction as well.
+        
         mLogoView.setImageResource(resId);
         mLogoView.setVisibility(View.VISIBLE);
         mHomeLayout.setVisibility(View.GONE);

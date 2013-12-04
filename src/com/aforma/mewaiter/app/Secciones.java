@@ -144,10 +144,10 @@ public class Secciones extends Activity{
 			btnVolver.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
 	            	
-	            	//setResult(0);
+	            	
 	            	finish();
-	            	//overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);	
-	            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+	            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 	            	
 	            }
 			

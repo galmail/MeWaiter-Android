@@ -4,7 +4,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase User, se utiliza para recoger todos los datos de un usuario y realizar las operaci—nes necesarias.
+* La Clase User, se utiliza para recoger todos los datos de un usuario y realizar las operaciones necesarias.
 *
 * 
 */

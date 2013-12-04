@@ -10,7 +10,7 @@ import com.aforma.mewaiter.utils.ActionBar.AbstractAction;
 	
 /**
  * 
- *  Clase Guardar Cuenta: Guardar’a los datos modificados en la pantalla Mi Cuenta. 
+ *  Clase Guardar Cuenta: GuardarÃ­a los datos modificados en la pantalla Mi Cuenta. 
  *  
  *  TODO en version2 de meWaiter.
  *  
@@ -29,7 +29,7 @@ public class GuardarCuenta extends AbstractAction {
 			
 				            	
 	            	AlertDialog.Builder builder = new AlertDialog.Builder(Main.contextForDialog);
-	            	builder.setMessage("ÀDeseas guardar la configuraci—n?")
+	            	builder.setMessage("Â¿Deseas guardar la configuraciÃ³n?")
 	            	.setTitle("Mi Cuenta"); 
 	            
 	            	//Add the buttons

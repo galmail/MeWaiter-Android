@@ -4,7 +4,8 @@
     android:layout_height="45dp"
     android:clickable="true"
     android:longClickable="true"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:visibility="visible" >
 
     <!-- Single ListItem -->
 
@@ -21,7 +22,8 @@
         android:background="@android:color/transparent"
         android:text="45"
         android:textSize="@dimen/small"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/item_list"
@@ -40,7 +42,8 @@
         android:textColor="@android:color/black"
         android:textSize="@dimen/small"
         android:textStyle="normal"
-        android:typeface="sans" />
+        android:typeface="sans"
+        android:visibility="visible" />
 
       <!-- android:layout_toRightOf="@+id/btnNumero" -->
 
@@ -53,7 +56,8 @@
         android:text="45 €"
         android:textColor="@color/pressed_mewaiter"
         android:textSize="@dimen/small"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 </TableRow>
     <!--
@@ -76,6 +80,7 @@
        android:hint="&lt;no hay comentarios>"
        android:text="Small Text"
        android:textAppearance="?android:attr/textAppearanceSmall"
-       android:textColor="@color/azul2" />
+       android:textColor="@color/azul2"
+       android:visibility="visible" />
 
 </TableLayout>

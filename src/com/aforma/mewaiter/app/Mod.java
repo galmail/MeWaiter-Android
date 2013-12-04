@@ -3,7 +3,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Mod, se utiliza para recoger todos los datos de los modificadores y realizar las operaci—nes necesarias.
+* La Clase Mod, se utiliza para recoger todos los datos de los modificadores y realizar las operaciones necesarias.
 *
 * 
 */

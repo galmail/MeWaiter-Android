@@ -339,7 +339,7 @@ containing a value of this type.
         public static final int btnAdd=0x7f0c003b;
         public static final int btnAddPlate=0x7f0c003c;
         public static final int btnAddPlato=0x7f0c003d;
-        public static final int btnAgrega=0x7f0c007e;
+        public static final int btnAgrega=0x7f0c007f;
         public static final int btnAnular1=0x7f0c0084;
         public static final int btnBack=0x7f0c0043;
         public static final int btnBack2=0x7f0c0002;
@@ -418,7 +418,7 @@ containing a value of this type.
         public static final int slidingPane=0x7f0c001a;
         public static final int subtitulo=0x7f0c003f;
         public static final int tbButton=0x7f0c000c;
-        public static final int textEmpty=0x7f0c007f;
+        public static final int textEmpty=0x7f0c007e;
         public static final int toggleButton1=0x7f0c007b;
         public static final int tstSelect=0x7f0c0066;
         public static final int txtApellidos=0x7f0c0078;

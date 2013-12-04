@@ -2,7 +2,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Payments, se utiliza para recoger todos los datos de los medios de pagos y realizar las operaci—nes necesarias.
+* La Clase Payments, se utiliza para recoger todos los datos de los medios de pagos y realizar las operaciones necesarias.
 *
 * 
 */

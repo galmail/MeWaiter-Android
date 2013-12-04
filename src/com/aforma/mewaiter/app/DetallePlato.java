@@ -27,8 +27,8 @@ import com.aforma.mewaiter.utils.DBHelper;
 
 /**
 * 
-* Esta activity muestra la pantalla del detalle del plato cuando va ha ser añadido al pedido.
-* Permite la seleccion de las características del mismo antes de ser añadido al pedido.
+* Esta activity muestra la pantalla del detalle del plato cuando va ha ser a√±adido al pedido.
+* Permite la seleccion de las caracter√≠sticas del mismo antes de ser a√±adido al pedido.
 *
 */
 
@@ -91,9 +91,9 @@ public class DetallePlato extends Activity {
 		if ( Main.m_Text != "")
 		{
 			BD.open();
-			String[] separated = (Main.m_Text).split(" ");
-			String mesa = separated[2]; // Contiene el numero de mesa
-			String zona = separated[0];
+			String[] separated = (Main.m_Text).split(" Mesa ");
+			String zona = separated[0]; // Contiene el n√∫mero de mesa
+			String mesa = separated[1]; // Contiene el n√∫mero de mesa
 			Mesa mesas = BD.getTableByZoneNum(zona, mesa);
 			
 			List<Restaurante> rest = BD.getRestaurants();
@@ -359,7 +359,8 @@ public class DetallePlato extends Activity {
 	            public void onClick(View v) {
 			
 	            	finish();	
-	            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+	            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 	            }
 			
 			});
@@ -429,22 +430,13 @@ public class DetallePlato extends Activity {
 		            		if (result > 0)
 		            		{
 		            		
-		            			//final AlertDialog alertDialog = new AlertDialog.Builder(DetalleContext).create();
-		    					//alertDialog.setTitle("Sincronización");
-		    					//alertDialog.setMessage("Plato Agregado al pedido");
-		    					//alertDialog.setCancelable(false);
-		    					//alertDialog.setButton("Aceptar",
-		    				             //   new DialogInterface.OnClickListener() {
-		    				               //     public void onClick(DialogInterface dialog, int id) {
-		    				                    //    dialog.cancel();
+		            			
 		            								Toast.makeText(DetalleContext, "Plato Agregado al pedido", Toast.LENGTH_LONG).show();
 		    				                        editTxtNote.setVisibility(View.INVISIBLE);
 		    				                        finish();
 		    				                        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 		    				                        Main.agregado=true;
-		    				                   // }
-		    				              //  });
-		    					// alertDialog.show();
+		    				  
 		            		}
 	            		
 	            		}
@@ -452,26 +444,16 @@ public class DetallePlato extends Activity {
 	            		
 	            	}else if ( id_order != 0)
 	            	{
-	            			/*final AlertDialog alertDialog = new AlertDialog.Builder(DetalleContext).create();
-	    					//alertDialog.setTitle("Sincronización");
-	    					alertDialog.setMessage("Plato Agregado al pedido");
-	    					alertDialog.setCancelable(false);
-	    					alertDialog.setButton("Aceptar",
-	    				                new DialogInterface.OnClickListener() {
-	    				                    public void onClick(DialogInterface dialog, int id) {
-	    				                        dialog.cancel();*/
+	            			
 	            								Toast.makeText(DetalleContext, "Plato Agregado al pedido", Toast.LENGTH_LONG).show();
 	    				                        editTxtNote.setVisibility(View.INVISIBLE);
 	    				                        finish();
 	    				                        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
-	    				                        Main.agregado=true;
-	    				                 //   }
-	    				               // });
-	    					//alertDialog.show();
+	    				               
 	            	}else
 	            	{
 	            			final AlertDialog alertDialog = new AlertDialog.Builder(DetalleContext).create();
-	    					//alertDialog.setTitle("Sincronización");
+	    					
 	    					alertDialog.setMessage("Plato no se ha podido agregar. ERROR.");
 	    					alertDialog.setCancelable(false);
 	    					alertDialog.setButton("Aceptar",

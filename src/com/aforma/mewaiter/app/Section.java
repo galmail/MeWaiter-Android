@@ -3,7 +3,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Section, se utiliza para recoger todos los datos de una sección y realizar las operaciónes necesarias.
+* La Clase Section, se utiliza para recoger todos los datos de una secci√≥n y realizar las operaciones necesarias.
 *
 * 
 */

@@ -2,7 +2,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase Mesa, se utiliza para recoger todos los datos de la mesa y realizar las operaci—nes necesarias.
+* La Clase Mesa, se utiliza para recoger todos los datos de la mesa y realizar las operaciones necesarias.
 *
 * 
 */

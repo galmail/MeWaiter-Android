@@ -1,7 +1,7 @@
 package com.aforma.mewaiter.app;
 /**
 * 
-* La Clase OrderMods, es la clase que recoge los datos y la asociaci—n entre el pedido y los modificadores seleccionados al mismo.
+* La Clase OrderMods, es la clase que recoge los datos y la asociacion entre el pedido y los modificadores seleccionados al mismo.
 *
 * 
 */

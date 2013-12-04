@@ -121,7 +121,7 @@ public class DBHelper extends SQLiteOpenHelper{
 	
 	
 	
-	//Array de strings para su uso en los diferentes métodos
+	//Array de strings para su uso en los diferentes m√©todos
 	private static final String[] restaurante = new String[] {  KEY_COL1, KEY_COL2,KEY_COL3, KEY_COL33, KEY_COL21 };
 	private static final String[] menus  = new String[] {  KEY_ID, KEY_COL32, KEY_COL1,KEY_COL5,KEY_COL6 };
 	private static final String[] section = new String[] {  KEY_ID,  KEY_ID1,  KEY_COL32, KEY_COL1, KEY_COL7,KEY_COL8, KEY_COL9, KEY_COL10 };
@@ -176,8 +176,8 @@ public class DBHelper extends SQLiteOpenHelper{
 	 
 	/**
 	* Constructor
-	* Toma referencia hacia el contexto de la aplicación que lo invoca para poder acceder a los 'assets' y 'resources' de la aplicación.
-	* Crea un objeto DBOpenHelper que nos permitirá controlar la apertura de la base de datos.
+	* Toma referencia hacia el contexto de la aplicaci√≥n que lo invoca para poder acceder a los 'assets' y 'resources' de la aplicaci√≥n.
+	* Crea un objeto DBOpenHelper que nos permitir√° controlar la apertura de la base de datos.
 	* @param context
 	*/
 	public DBHelper(Context context) {
@@ -195,7 +195,7 @@ public class DBHelper extends SQLiteOpenHelper{
 	}
 	 
 	/**
-	* Crea una base de datos vacía en el sistema y la reescribe con nuestro fichero de base de datos.
+	* Crea una base de datos vac√≠a en el sistema y la reescribe con nuestro fichero de base de datos.
 	* */
 	public void createDataBase() throws IOException{
 	 
@@ -213,8 +213,8 @@ public class DBHelper extends SQLiteOpenHelper{
 	if(dbExist){
 	//la base de datos existe y no hacemos nada.
 	}else{
-	//Llamando a este método se crea la base de datos vacía en la ruta por defecto del sistema
-	//de nuestra aplicación por lo que podremos sobreescribirla con nuestra base de datos.
+	//Llamando a este m√©todo se crea la base de datos vac√≠a en la ruta por defecto del sistema
+	//de nuestra aplicaci√≥n por lo que podremos sobreescribirla con nuestra base de datos.
 	this.getReadableDatabase();
 	 
 	try {
@@ -231,8 +231,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
 	 
 	/**
-	* Copia nuestra base de datos desde la carpeta assets a la recién creada
-	* base de datos en la carpeta de sistema, desde dónde podremos acceder a ella.
+	* Copia nuestra base de datos desde la carpeta assets a la recien creada
+	* base de datos en la carpeta de sistema, desde d√≥nde podremos acceder a ella.
 	* Esto se hace con bytestream.
 	* */
 	private void copyDataBase() throws IOException{
@@ -246,10 +246,10 @@ public class DBHelper extends SQLiteOpenHelper{
 	//Abrimos el fichero de base de datos como entrada
 	InputStream myInput = myContext.getAssets().open(DB_NAME);
 	 
-	//Ruta a la base de datos vacía recién creada
+	//Ruta a la base de datos vac√≠a recien creada
 	String outFileName = DB_PATH + DB_NAME;
 	 
-	//Abrimos la base de datos vacía como salida
+	//Abrimos la base de datos vac√≠a como salida
 	OutputStream myOutput = new FileOutputStream(outFileName);
 	 
 	//Transferimos los bytes desde el fichero de entrada al de salida
@@ -316,7 +316,7 @@ public class DBHelper extends SQLiteOpenHelper{
 	}
 
 	/**
-	* A continuación se crearán los métodos de lectura, inserción, actualización
+	* A continuaci√≥n se crear√°n los m√©todos de lectura, inserci√≥n, actualizaci√≥n
 	* y borrado de la base de datos.
 	* */
 	/**
@@ -1646,7 +1646,7 @@ public Order getOrder(int id) {
 			Order orders = new Order(status, status, product_name, product_name, product_name, product_name, product_name, status, product_name, status, null);	
 			ContentValues newValues = new ContentValues();
 						
-				//newValues.put("id", id); (Es automático)
+				//newValues.put("id", id); (Es autom√°tico)
 				newValues.put("id_table", id_table);
 				newValues.put("sid_table", sid_table);			
 				newValues.put("sid", sid);
@@ -1695,7 +1695,7 @@ public Order getOrder(int id) {
 			Order orders = new Order(status, status, product_name, product_name, product_name, product_name, product_name, status, product_name, status, null);	
 			ContentValues newValues = new ContentValues();
 						
-				//newValues.put("id", id); (Es automático)
+				//newValues.put("id", id); (Es autom√°tico)
 				newValues.put("id_table", id_table);
 				newValues.put("sid_table", sid_table);			
 				newValues.put("sid", sid);

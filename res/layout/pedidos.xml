@@ -30,29 +30,7 @@
            android:textStyle="normal"
            android:typeface="sans" />
 
-    <ListView
-        android:id="@+id/lstpedidos"
-        style="@style/ListViewmystyle.White"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnAgrega"
-        android:layout_below="@+id/txtMesa"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:choiceMode="singleChoice"
-        android:clickable="true"
-        android:divider="@drawable/ab_transparent_mewaiter"
-        android:drawSelectorOnTop="true"
-        android:longClickable="true"
-        android:overScrollMode="never"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideOverlay"
-        android:textColor="@color/azul2"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:visibility="gone" >
-
-    </ListView>
+   
 
     <TextView
         android:id="@+id/textEmpty"
@@ -67,7 +45,7 @@
         android:textSize="@dimen/small"
         android:textStyle="normal"
         android:typeface="normal"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btnAgrega"
@@ -77,11 +55,34 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
         android:text="Agregar"
         android:textSize="@dimen/small"
         android:textStyle="normal"
         android:typeface="normal"
-        android:visibility="invisible" />
+        android:visibility="visible" />
+
+    <ListView
+        android:id="@+id/lstpedidos"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMesa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:divider="@drawable/ab_transparent_mewaiter"
+        android:drawSelectorOnTop="true"
+        android:longClickable="true"
+        android:overScrollMode="never"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:textColor="@color/azul2"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="visible" >
+
+    </ListView>
 
 </RelativeLayout>

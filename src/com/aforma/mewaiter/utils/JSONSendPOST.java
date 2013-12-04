@@ -27,7 +27,7 @@ import android.util.Log;
 
 /**
  * 
- * La clase JSONSendPOST se utiliza para realizar el envío del JSON de pedidos o facturas.
+ * La clase JSONSendPOST se utiliza para realizar el env√≠o del JSON de pedidos o facturas.
  *
  */
 public class JSONSendPOST {

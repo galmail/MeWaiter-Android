@@ -3,7 +3,7 @@ package com.aforma.mewaiter.app;
 
 /**
 * 
-* La Clase SubSection, se utiliza para recoger todos los datos de una subsección y realizar las operaciónes necesarias.
+* La Clase SubSection, se utiliza para recoger todos los datos de una subsecci√≥n y realizar las operaciones necesarias.
 *
 * 
 */

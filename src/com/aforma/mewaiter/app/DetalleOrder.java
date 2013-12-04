@@ -26,8 +26,8 @@ import com.aforma.mewaiter.utils.DBHelper;
 
 /**
  * 
- * Esta activity muestra la pantalla del detalle del plato ya añadido al pedido.
- * Permite la modificación del mismo antes de ser enviado al POS.
+ * Esta activity muestra la pantalla del detalle del plato ya a√±adido al pedido.
+ * Permite la modificaci√≥n del mismo antes de ser enviado al POS.
  *
  */
 public class DetalleOrder extends Activity {
@@ -101,10 +101,12 @@ public class DetalleOrder extends Activity {
 		BD.close();
 		if ( Main.m_Text != "")
 		{
-			String[] separated = (Main.m_Text).split(" ");
-			String zona = separated[0]; // Contiene el número de mesa
-			String mesa = separated[2]; // Contiene el número de mesa
-			id_table = Integer.parseInt(mesa);
+			String[] separated = (Main.m_Text).split(" Mesa ");
+			
+				String zona = separated[0]; // Contiene el n√∫mero de mesa
+				String mesa = separated[1]; // Contiene el n√∫mero de mesa
+				id_table = Integer.parseInt(mesa);
+			
 		}
 
 		parentDP=(Activity) DetalleOrder.this;
@@ -257,7 +259,8 @@ public class DetalleOrder extends Activity {
 	            public void onClick(View v) {
 			
 	            	finish();	
-	            	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	//overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+	            	overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 	            }
 			
 			});

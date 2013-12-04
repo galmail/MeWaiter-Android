@@ -12,7 +12,7 @@ import com.aforma.mewaiter.utils.DBHelper;
 
 /**
  * 
- * Activity Lander muestra la primera pantalla de la App, con el botón "Comienzo"
+ * Activity Lander muestra la primera pantalla de la App, con el bot√≥n "Comienzo"
  *
  */
 public class Lander extends Activity {

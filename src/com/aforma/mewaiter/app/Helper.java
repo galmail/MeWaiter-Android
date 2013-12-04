@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 /** 
  * 
- * Expande la ListView a su tamaño máximo de tal forma que muestra todos los elementos sin Scroll.
+ * Expande la ListView a su tama√±o m√°ximo de tal forma que muestra todos los elementos sin Scroll.
  *
  * El Scroll utilizado seria el del layout en este caso.
  */

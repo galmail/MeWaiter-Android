@@ -20,7 +20,7 @@ import android.util.Log;
  
 /**
  * 
- * La clase JSONCreate se utiliza para crear los JSON que será luego enviados en el envío de pedido y factura.
+ * La clase JSONCreate se utiliza para crear los JSON que ser√° luego enviados en el env√≠o de pedido y factura.
  *
  */
 public class JSONCreate {
