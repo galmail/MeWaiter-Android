@@ -46,12 +46,37 @@
         android:textStyle="normal"
         android:typeface="normal"
         android:visibility="visible" />
+    
+    <ListView
+        android:id="@+id/lstpedidos"
+        style="@style/ListViewmystyle.White"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMesa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:divider="@drawable/ab_transparent_mewaiter"
+        android:drawSelectorOnTop="true"
+        android:longClickable="true"
+        android:overScrollMode="never"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:textColor="@color/azul2"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="visible" >
+
+    </ListView>
 
     <Button
         android:id="@+id/btnAgrega"
         style="@style/Buttonmystyle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/lstpedidos"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="10dp"
