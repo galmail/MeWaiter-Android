@@ -479,9 +479,9 @@ static void checkSegundos() {
 		
 		if (Main.sid_table==null || Main.sid_table.isEmpty())
 		{
-			String mesa[] = Main.m_Text.split(" ");
+			String mesa[] = Main.m_Text.split(" Mesa ");
 			String zona=mesa[0];
-			String numero= mesa[2];
+			String numero= mesa[1];
 			Main.DB.open();
 			Mesa mesasel = Main.DB.getTableByZoneNum(zona, numero);
 			Main.sid_table = mesasel.getSidTable();

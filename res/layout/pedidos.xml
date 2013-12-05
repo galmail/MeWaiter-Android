@@ -106,7 +106,7 @@
         android:textColor="@color/azul2"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:visibility="visible" >
+        android:visibility="gone" >
 
     </ListView>
 

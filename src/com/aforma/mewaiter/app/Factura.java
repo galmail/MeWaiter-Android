@@ -184,10 +184,11 @@ public class Factura extends Activity{
 		if (Main.m_Text != null && !Main.m_Text.isEmpty())
 		{
 			txtmesa.setText(Main.m_Text.toString());
-			final String name = Main.m_Text.toString();
-			String[] separated = (Main.m_Text).split(" Mesa ");
-			String zona = separated[0]; // Contiene el número de mesa
-			String mesa = separated[1]; // Contiene el número de mesa
+			final String name = Main.m_Text.toString();			
+			
+			String[] separated = Main.m_Text.split(" Mesa ");
+			zona = separated[0]; // Contiene el número de mesa
+			numero = separated[1]; // Contiene el número de mesa
 		}else
 		{
 			Toast.makeText(this, "Debes seleccionar una mesa.", Toast.LENGTH_LONG).show();
