@@ -132,8 +132,12 @@ public class DetalleOrder extends Activity {
 		 
 		sid = order.getSid(); // Sid del plato
 
+		// Nos quedamos con el sid del plato para la busqueda de los dishmods
+		String[] cadena = sid.split("\\+");
+		String sidD=cadena[0];
+				
 		BD.open();
-		ArrayList<DishMod> dishesmod = BD.getDishesMods(sid);
+		ArrayList<DishMod> dishesmod = BD.getDishesMods(sidD);
 		BD.close();
 			 		
 			 	
@@ -217,9 +221,11 @@ public class DetalleOrder extends Activity {
 							 			int idm = mods.get(z).getIdModifier();
 							 			
 							 			ToggleButton tb = new ToggleButton(this);
+								 									 			
+								 		tb.setTextOn(nombre);
+								 		tb.setTextOff(nombre);
 								 		tb.setText(nombre);
 								 		tb.setId(idm+z);
-								 		
 								 		tb.setTextColor(black);
 							 			ll.addView(tb);
 							 		}
@@ -233,7 +239,6 @@ public class DetalleOrder extends Activity {
 			 		
 		for (int m=0; m<ordermods.size(); m++)
 		{
-			
 			String Value = ordermods.get(m).getValue();
 			showAnswer(Value);
 		}
@@ -503,7 +508,7 @@ public class DetalleOrder extends Activity {
 	}
 
 
-  public void showAnswer( String Value ) {
+  public void showAnswer(String Value) {
 	   
 	  	
 	  	 LinearLayout root = (LinearLayout) findViewById(R.id.LayoutMod);   
@@ -551,14 +556,25 @@ public class DetalleOrder extends Activity {
 	                
 	                String nombre =tb.getText().toString();
 	                String value=tb.getTextOn().toString();
-	                if (value.contains(Value))
+	                tb.setTextOn(value);
+			 		tb.setTextOff(value);
+	                tb.setTextColor(black);
+	               
+	                if (value.equals(Value))
 	                {
-	                	
-	                	tb.setTextColor(black);
-			 			
-			 			tb.setChecked(true);
-	                }	
+	                	tb.setChecked(true);
+	                
 	                }
+	                
+	                if (tb.isChecked())
+	                {
+	                	tb.setText(value);
+	                }
+	              /*  else
+	                {
+	                	tb.setText("Sin " + value);
+	                }*/
+	               }
 	            else {
 	                //Support for other controls
 	            	
@@ -688,8 +704,8 @@ public class DetalleOrder extends Activity {
 	                {
 	                	
 	                	id = tb.getId();
-	                	String nombre =tb.getText().toString();
-	                	String value=tb.getTextOn().toString();
+	                	String nombre = tb.getText().toString();
+	                	String value= tb.getTextOn().toString();
 	                	
 	                	if (mandatories.contains(nombre))
 		                {

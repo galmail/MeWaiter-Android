@@ -1075,7 +1075,7 @@ static JSONObject getModifiers() {
 			resul1= BD.removeModifierList();
 			for(int i=0;i<modifiersList.size();i++)
 			{		
-					resultado = BD.insertModifierList( modifiersList.get(i).get("id"),modifiersList.get(i).get("id_mls"),modifiersList.get(i).get("sid"), modifiersList.get(i).get("name"),  modifiersList.get(i).get("is_mandatory"), modifiersList.get(i).get("is_multioption"));
+					resultado = BD.insertModifierList( modifiersList.get(i).get("id"),modifiersList.get(i).get("id_mls"),modifiersList.get(i).get("sid"), modifiersList.get(i).get("name"),  modifiersList.get(i).get("is_mandatory"), modifiersList.get(i).get("is_multioption"), modifiersList.get(i).get("selected_modifier_sid"));
 			}	
 			
 			//Cargamos modiferslistSets

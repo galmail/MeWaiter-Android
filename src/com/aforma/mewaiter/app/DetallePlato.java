@@ -125,9 +125,15 @@ public class DetallePlato extends Activity {
 		//Sumar y Restar
 		 
 		
+		// Nos quedamos con el sid del plato para la busqueda de los dishmods
+		String[] cadena = sid.split("\\+");
+		String sidD=cadena[0];
+		
 
 		BD.open();
-		final ArrayList<DishMod> dishesmod = BD.getDishesMods(sid);
+		
+		final ArrayList<DishMod> dishesmod = BD.getDishesMods(sidD);
+		//ArrayList<DishMod> dishesmod2 = BD.getAllDishesMods();
 		if (id_subsection != 0)
 		{
 			String idSubSection = Integer.toString(id_subsection);
@@ -166,6 +172,7 @@ public class DetallePlato extends Activity {
 					 		String titulo = listmod.get(i).getName();
 					 		String isMand = listmod.get(i).getMandatory();
 					 		String isMulti = listmod.get(i).getMultioption();
+					 		String selected = listmod.get(i).getSelected();
 					 		sid_ml = listmod.get(j).getSid();
 					 		int idList = listmod.get(i).getIdList();
 					 		BD.open();
@@ -212,11 +219,17 @@ public class DetallePlato extends Activity {
 						 					mandatories.add(nombre);
 							 			}
 						                
+						 				rb[z]  = new RadioButton(this);
 						 				
-						 			    rb[z]  = new RadioButton(this);
 						 			    rb[z].setText(nombre);
 						 			    rb[z].setId(idm);
-						 			    
+						 			    // seleccionando mandotory por defecto
+						 				if ( selected.contains(sid_modifier))
+						 				{
+						 					rb[z].setChecked(true);
+						 				}
+						 				
+						 			   
 						 			    
 						 			    rg.addView(rb[z]); //the RadioButtons are added to the radioGroup instead of the layout
 						 			    
@@ -252,6 +265,12 @@ public class DetallePlato extends Activity {
 							 			{
 						 					mandatories.add(nombre);
 							 			}
+								 		
+								 		// seleccionando mandotory por defecto
+						 				if ( selected.contains(sid_modifier))
+						 				{
+						 					cb.setChecked(true);
+						 				}
 						                cb.setText(nombre);
 						                cb.setId(idm+z);
 						                ll.addView(cb);
@@ -274,7 +293,19 @@ public class DetallePlato extends Activity {
 						 				}
 							 			ToggleButton tb = new ToggleButton(this);
 							 			
-								 		tb.setText(nombre);
+							 			// seleccionando mandotory por defecto
+						 				if ( selected.contains(sid_modifier))
+						 				{
+						 					tb.setChecked(true);
+						 					tb.setText(nombre);
+						 				}
+						 				/*else
+						 				{
+						 					tb.setText("Sin " + nombre);
+						 				}*/
+							 			tb.setText(nombre);
+								 		tb.setTextOn(nombre);
+								 		tb.setTextOff(nombre);
 								 		tb.setId(idm+z);
 								 		ll.addView(tb);
 							 		}

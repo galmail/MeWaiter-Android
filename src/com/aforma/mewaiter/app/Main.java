@@ -1425,7 +1425,7 @@ static  void cargarDB() {
 		resul1= DB.removeModifierList();
 		for(int i=0;i<Login.modifiersList.size();i++)
 		{		
-				resultado = DB.insertModifierList( Login.modifiersList.get(i).get("id"),Login.modifiersList.get(i).get("id_mls"),Login.modifiersList.get(i).get("sid"), Login.modifiersList.get(i).get("name"),  Login.modifiersList.get(i).get("is_mandatory"), Login.modifiersList.get(i).get("is_multioption"));
+				resultado = DB.insertModifierList( Login.modifiersList.get(i).get("id"),Login.modifiersList.get(i).get("id_mls"),Login.modifiersList.get(i).get("sid"), Login.modifiersList.get(i).get("name"),  Login.modifiersList.get(i).get("is_mandatory"), Login.modifiersList.get(i).get("is_multioption"), Login.modifiersList.get(i).get("selected_modifier_sid"));
 		}	
 		
 		//Cargamos modiferslistSets
@@ -1665,6 +1665,7 @@ private static String tratarModifiers(JSONObject json) {
 	final String TAG_SDMOD ="sd_modifierid";	
 	final String TAG_SID="sid";
 	final String TAG_ID3="id_mls";
+	final String TAG_SEL="selected_modifier_sid";
 	Login.modifiersList = new ArrayList <HashMap<String,String>>();
 	Login.modifiers = new ArrayList <HashMap<String,String>>();
 	Login.modifiersListSets = new ArrayList <HashMap<String,String>>();
@@ -1713,6 +1714,7 @@ private static String tratarModifiers(JSONObject json) {
             String sidML = c.getString("sid");
             String is_mandatory = c.getString("is_mandatory");
             String is_multioption = c.getString("is_multioption");
+            String selected_modifier_sid = c.getString("selected_modifier_sid");
             
             // creating new HashMap
             HashMap<String, String> map1 = new HashMap<String, String>();
@@ -1724,6 +1726,7 @@ private static String tratarModifiers(JSONObject json) {
             map1.put(TAG_NAME, nameML);
             map1.put(TAG_ISMAND, is_mandatory);
             map1.put(TAG_ISMULTI, is_multioption);
+            map1.put(TAG_SEL, selected_modifier_sid);
 
             // adding HashList to ArrayList
            

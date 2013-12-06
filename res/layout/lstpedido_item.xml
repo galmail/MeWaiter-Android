@@ -40,7 +40,7 @@
         android:tag="15"
         android:text="productos dkajflkajf"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/small"
+        android:textSize="15sp"
         android:textStyle="normal"
         android:typeface="sans"
         android:visibility="visible" />

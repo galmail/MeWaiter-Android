@@ -171,7 +171,7 @@ public class JSONCreate {
 		    	
 		    	idOrder = order.get(i).getId();
 		    	
-		    	ordermods = order.get(i).getOrderMods();
+		    	//ordermods = order.get(i).getOrderMods();
 		    	ordermods = Main.DB.getOrdermodsByIDMLS(idOrder, "%");
 		    	discountssels = Main.DB.getDiscountSelByIdOrder(idOrder);
 		    	//ordermods = Main.DB.getOrdermodsByID(idOrder, sid_mls);
@@ -231,11 +231,15 @@ public class JSONCreate {
 					    			sid_m = ordermods_m.get(i2).getSid();
 					    			m = Main.DB.getModsSid(sid_m);
 				    				name_m = m.getName();
-					    		
+				    				
+				    				
 				    				//Modificadores		    				    				
 				    				json3.put("sid", sid_m);
 				    				json3.put("name", name_m);
-				    				json4.put(i2, json3);
+				    				if (!json5.toString().contains(json3.toString()))
+				    				{
+				    					json4.put(i2, json3);
+				    				}
 				    				json3 = new JSONObject();
 				    				
 					    		}

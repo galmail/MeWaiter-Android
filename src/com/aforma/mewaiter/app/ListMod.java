@@ -14,9 +14,10 @@ public class ListMod {
 	private String is_mandatory;
 	private String is_multioption;
 	private String sid;
+	private String selected;
 	
 	 
-		public ListMod(int id_list, int id_mls, String sid, String name, String is_mandatory, String is_multioption ) {
+		public ListMod(int id_list, int id_mls, String sid, String name, String is_mandatory, String is_multioption, String selected ) {
 			super();
 			
 			this.id_list=id_list;
@@ -25,6 +26,7 @@ public class ListMod {
 			this.sid=sid;
 			this.is_mandatory=is_mandatory;
 			this.is_multioption=is_multioption;
+			this.selected = selected;
 			
 		}
 		
@@ -55,5 +57,8 @@ public class ListMod {
 		{
 			return this.is_multioption;
 		}
-
+		public String getSelected()
+		{
+			return this.selected;
+		}
 }

@@ -118,6 +118,7 @@ public class DBHelper extends SQLiteOpenHelper{
 	public final static String KEY_COL61= "sid_section";
 	public final static String KEY_COL62= "sid_dish";
 	public final static String KEY_COL63= "key";
+	public final static String KEY_COL64= "selected";
 	
 	
 	
@@ -129,7 +130,7 @@ public class DBHelper extends SQLiteOpenHelper{
 	private static final String[] dishes = new String[] {  KEY_ID, KEY_ID1, KEY_ID2, KEY_ID4,  KEY_COL32,  KEY_COL32, KEY_COL1, KEY_COL11, KEY_COL6, KEY_COL12, KEY_COL20 };
 	private static final String[] dishtypes = new String[] { KEY_ID, KEY_ID3, KEY_ID1, KEY_COL1, KEY_COL12, KEY_COL13 };
 	private static final String[] user = new String[] { KEY_COL14, KEY_COL15, KEY_COL16, KEY_COL17, KEY_COL18, KEY_COL19 };
-	private static final String[] modifier_list = new String[] { KEY_ID5, KEY_ID8, KEY_COL32, KEY_COL1, KEY_COL22, KEY_COL23};
+	private static final String[] modifier_list = new String[] { KEY_ID5, KEY_ID8, KEY_COL32, KEY_COL1, KEY_COL22, KEY_COL23, KEY_COL64};
 	private static final String[] modifier_list_set = new String[] { KEY_ID, KEY_COL32, KEY_COL1};
 	private static final String[] modifiers = new String[] { KEY_ID5, KEY_ID6, KEY_COL1, KEY_COL32, KEY_COL24, KEY_COL12, KEY_COL6};
 	private static final String[] dishesmods = new String[] { KEY_ID, KEY_ID8, KEY_COL32};
@@ -1033,7 +1034,7 @@ public ArrayList<DishType> getDishTypes() {
 		}
 
 		public Long insertModifierList(String id_list, String id_mls, String sid, String name,
-				String is_mandatory, String is_multioption) {
+				String is_mandatory, String is_multioption, String selected_modifier_sid) {
 			ContentValues newValues = new ContentValues();
 			int i = Integer.parseInt(id_list);
 			int i2 = Integer.parseInt(id_mls);
@@ -1044,7 +1045,8 @@ public ArrayList<DishType> getDishTypes() {
 				newValues.put("name", name);
 				newValues.put("is_mandatory", is_mandatory);
 				newValues.put("is_multioption", is_multioption);
-	
+				newValues.put("selected", selected_modifier_sid);
+				
 				return mewaiter.insert(DATABASE_TABLE8, null, newValues);
 		}
 
@@ -1060,6 +1062,7 @@ public ArrayList<DishType> getDishTypes() {
 				newValues.put("sd_modifierid", sd_modifierid);
 				newValues.put("description", description);
 				newValues.put("price", 	price);
+				
 				
 				
 				return mewaiter.insert(DATABASE_TABLE9, null, newValues);
@@ -1270,7 +1273,8 @@ public Mod getModsValue(String value) {
 						result.getString(result.getColumnIndex("sid")),
 						result.getString(result.getColumnIndex("name")),
 						result.getString(result.getColumnIndex("is_mandatory")),
-						result.getString(result.getColumnIndex("is_multioption"))
+						result.getString(result.getColumnIndex("is_multioption")),
+						result.getString(result.getColumnIndex("selected"))
 				));
 			} while(result.moveToNext());
 			
@@ -1279,7 +1283,7 @@ public Mod getModsValue(String value) {
 		public ListMod getListModId(int idMLS) {
 			
 			
-			ListMod listmod = new ListMod (idMLS, idMLS, null, null, null, null);
+			ListMod listmod = new ListMod (idMLS, idMLS, null, null, null, null, null);
 			
 			Cursor result = mewaiter.query(true, DATABASE_TABLE8, modifier_list,
 					KEY_ID5 + "=" + idMLS,	null, null, null, null, null);
@@ -1293,7 +1297,9 @@ public Mod getModsValue(String value) {
 						result.getString(result.getColumnIndex("sid")),
 						result.getString(result.getColumnIndex("name")),
 						result.getString(result.getColumnIndex("is_mandatory")),
-						result.getString(result.getColumnIndex("is_multioption"))
+						result.getString(result.getColumnIndex("is_multioption")),
+						result.getString(result.getColumnIndex("selected"))
+						
 				);
 			} while(result.moveToNext());
 			
@@ -1303,7 +1309,7 @@ public Mod getModsValue(String value) {
 		public ListMod getListModSid(String sid) {
 			
 			
-			ListMod listmod = new ListMod(0, 0, sid, sid, sid, sid);
+			ListMod listmod = new ListMod(0, 0, sid, sid, sid, sid, sid);
 			
 			Cursor result = mewaiter.query(true, DATABASE_TABLE8, modifier_list,
 					KEY_COL32 + "='" + sid + "'",	null, null, null, null, null);
@@ -1317,7 +1323,8 @@ public Mod getModsValue(String value) {
 						result.getString(result.getColumnIndex("sid")),
 						result.getString(result.getColumnIndex("name")),
 						result.getString(result.getColumnIndex("is_mandatory")),
-						result.getString(result.getColumnIndex("is_multioption"))
+						result.getString(result.getColumnIndex("is_multioption")),
+						result.getString(result.getColumnIndex("selected"))
 				);
 			} while(result.moveToNext());
 			
