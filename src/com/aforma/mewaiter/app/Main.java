@@ -49,6 +49,7 @@ import com.aforma.mewaiter.app.AdapterSettings;
 import com.aforma.mewaiter.utils.ActionBar;
 import com.aforma.mewaiter.utils.CheckConnect;
 import com.aforma.mewaiter.utils.JSONParser;
+import com.aforma.mewaiter.utils.JSONSendPOST;
 import com.aforma.mewaiter.utils.SeparatedListAdapter;
 import com.aforma.mewaiter.utils.ActionBar.AbstractAction;
 import com.aforma.mewaiter.utils.DBHelper;
@@ -542,7 +543,12 @@ public static int openTable(String zona, String mesa, String accion, String mwke
 	JSONObject jsonTable = null;
 				       
 	// Creating JSON Parser instance
-	JSONParser jParserTable = new JSONParser();
+	//JSONParser jParserTable = new JSONParser();
+	JSONSendPOST jsonPost = new JSONSendPOST();
+	
+	
+	
+		
 	int result = 0;
 	
 	String[] cadena =ip.split(":");
@@ -557,42 +563,33 @@ public static int openTable(String zona, String mesa, String accion, String mwke
 	if ( CheckConnect.serverIsAlive(ip, port, 10000) )
 	{
 	String url="http://"+ip+":"+port+"/table?mwkey="+mwkey+"&table="+sid_table+"&method="+accion+"&pax="+pax+"&reservation="+reservation+"&first_time_visit="+visit;
-	jsonTable = jParserTable.getJSONFromUrl(url);
+	//jsonTable = jParserTable.getJSONFromUrl(url);
+	String jsonResult = jsonPost.post(url);
     //return jsonRest;
 	
-	String resultado = null;
-	if ( jsonTable == null )
-	{
-		return 3;
-	}
-	
-	
-	try {
-		resultado = jsonTable.getString("success");
-	} catch (JSONException e) {
-		
-		e.printStackTrace();
-	}
-	
-	if ( resultado == "true" && accion == "open")
-	{
-		result = 1; 
-	}else
-	{
-		if ( resultado == "true" && accion == "closed")
+	boolean resultado = false;
+		if ( jsonResult == null )
 		{
-			result = 2;
+			return 3;
+		}
+		resultado = jsonResult.contains("success");
+		if ( resultado == true && accion == "open")
+		{
+			result = 1; 
 		}else
 		{
-			result = 3; 
+			if ( resultado == true && accion == "closed")
+			{
+				result = 2;
+			}else
+			{
+				result = 3; 
+			}
 		}
 	}
 	
 	return result; // 1 Open, 2 Close, 3 error 4 no funciona la conexión
-	}else
-	{
-		return 4;
-	}
+	
 }
 
 
@@ -1122,7 +1119,7 @@ private ArrayList<Listado> obtenerItems1() {
         String comentarios = orders.get(i).getNote();
         for (int j=0;j < ordersmods.size();j++)
         {
-        	comentarios = comentarios + " | " + ordersmods.get(j).getValue();
+        	comentarios = comentarios + " " + ordersmods.get(j).getValue();
         }
         String price = "0";
         if (orders.get(i).getPrice() != null)

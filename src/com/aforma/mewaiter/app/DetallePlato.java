@@ -145,6 +145,11 @@ public class DetallePlato extends Activity {
 			String idSection = Integer.toString(id_section);
 			Section section = BD.getSectionByIdSection(idSection);
 			category_sid = section.getSid();
+			if (category_sid == "-1")
+			{
+				Menu menu = BD.getMenu(id_menu);
+				category_sid =  menu.getSid();
+			}
 		}
 		
 		final ArrayList<Discount> discounts = BD.getDiscounts();

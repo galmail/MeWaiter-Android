@@ -99,4 +99,38 @@ public class JSONSendPOST {
         	 return false;
         }
     }
+    public String post(String url) {
+        // Create a new HttpClient and Post Header
+
+        HttpParams myParams = new BasicHttpParams();
+        
+        
+        HttpConnectionParams.setConnectionTimeout(myParams, 10000); //Timeout Limit
+        HttpConnectionParams.setSoTimeout(myParams, 10000); //Timeout Limit
+        
+        HttpClient httpclient = new DefaultHttpClient(myParams);
+       
+        String[] cadena;
+       
+        try {
+
+            HttpPost httppost = new HttpPost(url.toString());
+            httppost.setHeader("Content-type", "application/json");
+            
+            HttpResponse response = httpclient.execute(httppost);
+            String temp = EntityUtils.toString(response.getEntity());
+            Log.i("tag", temp);
+            
+              	return temp;
+            
+
+        } catch (ClientProtocolException e) {
+        	Log.e("My App", "Could not parse malformed JSON: \"" + json + "\"");
+        	return "false";
+
+        } catch (IOException e) {
+        	 Log.e("mewaiter", "No se ha podido parsear el JSON: \"" + json + "\"");
+        	 return "false";
+        }
+    }
 }
