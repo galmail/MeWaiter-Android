@@ -155,7 +155,7 @@ public void onCreate(Bundle savedInstanceState) {
 							    if (CheckConnect.serverIsAlive(ip, port, 10000))
 							    {
 								    int OK2 = Main.checkopenTable(result,result2, mwkey, ip, port);
-								    if ( OK2 == 1 )
+								    if ( OK2 != 1 )
 								    {
 								    int OK = Main.openTable(result, result2, "open", mwkey, pax, reservation, visit, ip);
 								    switch(OK) {
@@ -178,7 +178,10 @@ public void onCreate(Bundle savedInstanceState) {
 								    }
 								    else
 								    {
-								    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " Ya está abierta. ", Toast.LENGTH_LONG).show();	
+								    	Toast.makeText(contextForDialog, "Mesa "+ Main.m_Text + " Ya está abierta. ", Toast.LENGTH_LONG).show();
+								    	Main.agregado = true;	
+								    	finish();
+								    	overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
 								    }
 							    }else
 							    {

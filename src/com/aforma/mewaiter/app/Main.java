@@ -48,6 +48,7 @@ import com.aforma.mewaiter.app.EnvioAllPedidos;
 import com.aforma.mewaiter.app.AdapterSettings;
 import com.aforma.mewaiter.utils.ActionBar;
 import com.aforma.mewaiter.utils.CheckConnect;
+import com.aforma.mewaiter.utils.HTTPSendGet;
 import com.aforma.mewaiter.utils.JSONParser;
 import com.aforma.mewaiter.utils.JSONSendPOST;
 import com.aforma.mewaiter.utils.SeparatedListAdapter;
@@ -602,6 +603,8 @@ public static int checkopenTable(String zona, String mesa, String mwkey, String 
 	JSONParser jParserTable = new JSONParser();
 	int result = 0;
 	
+	String resultado = null;
+	
 	
 	int timeout=10000;
 	String[] cadena = ip.split(":");
@@ -617,18 +620,17 @@ public static int checkopenTable(String zona, String mesa, String mwkey, String 
 	{
 		
 		String url="http://"+ip+":"+port+"/table?mwkey="+mwkey+"&table="+sid_table;
-		jsonTable = jParserTable.getJSONFromUrl(url);
+		jsonTable = HTTPSendGet.getData(url);
     
 	
-		String resultado = null;
 		if ( jsonTable == null )
 		{
-			return 3;
+			return 3;    // Error al obtener el json en el REST
 		}
 	
 	
 		try {
-			resultado = jsonTable.getString("success");
+			resultado = jsonTable.getString("opened");
 		} catch (JSONException e) {
 			
 			e.printStackTrace();
@@ -639,7 +641,7 @@ public static int checkopenTable(String zona, String mesa, String mwkey, String 
 			result = 1; 
 		}else
 		{
-				result = 2; 
+			result = 2; 
 		}
 		return result; // 1 Open, 2 error 3 no funciona la conexión
 	}else

@@ -1120,7 +1120,8 @@ public ArrayList<DishType> getDishTypes() {
 				
 				
 				Cursor result = mewaiter.query(true, DATABASE_TABLE10, dishesmods,
-						"sid like '" + sid + "'", null, null, null, null, null);
+					KEY_COL32 +	"='" + sid + "'", null, null, null, null, null);
+				//Cursor result2 = mewaiter.query(DATABASE_TABLE10, dishesmods, null, null, null, null, null);
 				//Cursor result = mewaiter.query(DATABASE_TABLE5, dishes, null, null, null, null, null);
 				
 				if (result.moveToFirst())
@@ -1201,14 +1202,44 @@ public Mod getModsSid(String sid) {
 			
 			
 	}
-public Mod getModsValue(String value) {
+
+public ArrayList<Mod> getModsSidBySidML(String sid_ml) {
+	
+	//ContentValues newValues = new ContentValues();
+	ArrayList<Mod> mods = new ArrayList<Mod>();	
+	
+	
+	Cursor result = mewaiter.query(true, DATABASE_TABLE9, modifiers,
+			KEY_COL32 + " like '%" + sid_ml +"%'", null, null, null, null, null);
+	
+	//Cursor result = mewaiter.query(DATABASE_TABLE9, modifiers, null, null, null, null, null);
+	if (result.moveToFirst())
+	do {
+		mods.add( new Mod(result.getInt(result.getColumnIndex("id_list")),
+			result.getInt(result.getColumnIndex("id_modifier")),
+			result.getString(result.getColumnIndex("name")),
+			result.getString(result.getColumnIndex("sid")),
+			result.getString(result.getColumnIndex("sd_modifierid")),
+			result.getString(result.getColumnIndex("description")),
+			result.getString(result.getColumnIndex("price"))));						
+	
+	
+	} while(result.moveToNext());
+	
+	
+	return mods;
+
+	
+	
+}
+public Mod getModsValue(String value, String sid_mls) {
 	
 	//ContentValues newValues = new ContentValues();
 	Mod mods = new Mod(0, 0, null,null,null,null,null);	
 	
 	
 	Cursor result = mewaiter.query(true, DATABASE_TABLE9, modifiers,
-			KEY_COL1 + "='" + value +"'", null, null, null, null, null);
+			KEY_COL1 + "='" + value +"' AND " + KEY_COL32 + " like '%" + sid_mls + "%'", null, null, null, null, null);
 	
 	//Cursor result = mewaiter.query(DATABASE_TABLE9, modifiers, null, null, null, null, null);
 	if (result.moveToFirst())
@@ -2301,6 +2332,34 @@ public Dish getDishByName(String name) {
 	return dish;
 	
 	}
+
+public Dish getDishByNameMenu(int id_menu, String seleccion) {
+
+	Dish dish = new Dish(0, 0, 0, 0, null,null, seleccion, seleccion, seleccion, seleccion);
+	
+	
+	Cursor result = mewaiter.query(true, DATABASE_TABLE5, dishes, KEY_COL1 + "='" + seleccion + "' AND " + KEY_ID1 + "=" + id_menu,
+			null, null, null, null, null);
+	//Cursor result = mewaiter.query(DATABASE_TABLE5, dishes, null, null, null, null, null);
+	
+	if (result.moveToFirst())
+	do {
+	dish = new Dish(
+			result.getInt(result.getColumnIndex("id")),
+			result.getInt(result.getColumnIndex("id_menu")),
+			result.getInt(result.getColumnIndex("id_section")),
+			result.getInt(result.getColumnIndex("id_subsection")),
+			result.getString(result.getColumnIndex("sid")),
+			result.getString(result.getColumnIndex("name")),
+			result.getString(result.getColumnIndex("price")),
+			result.getString(result.getColumnIndex("description")),
+			result.getString(result.getColumnIndex("short_title")),
+			result.getString(result.getColumnIndex("sd_dish_id")));
+	} while(result.moveToNext());
+	return dish;
+}
+
+
 }
 
 

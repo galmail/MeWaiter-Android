@@ -178,7 +178,7 @@ public class DetallePlato extends Activity {
 					 		String isMand = listmod.get(i).getMandatory();
 					 		String isMulti = listmod.get(i).getMultioption();
 					 		String selected = listmod.get(i).getSelected();
-					 		sid_ml = listmod.get(j).getSid();
+					 		sid_ml = listmod.get(i).getSid();
 					 		int idList = listmod.get(i).getIdList();
 					 		BD.open();
 					 		mods = BD.getMods(idList);
@@ -210,6 +210,8 @@ public class DetallePlato extends Activity {
 						 				String nombre = mods.get(z).getName();
 						 				int idm = mods.get(z).getIdModifier();
 						 				sid_modifier = mods.get(z).getSid();
+						 				if (sid_modifier.contains(sid_ml))
+						 				{
 						 				if(!mods.get(z).getprice().isEmpty())
 						 				{
 						 					if (!mods.get(z).getprice().contains("null"))
@@ -228,6 +230,7 @@ public class DetallePlato extends Activity {
 						 				
 						 			    rb[z].setText(nombre);
 						 			    rb[z].setId(idm);
+						 			    rb[z].setTag(sid_modifier);
 						 			    // seleccionando mandotory por defecto
 						 				if ( selected.contains(sid_modifier))
 						 				{
@@ -237,7 +240,7 @@ public class DetallePlato extends Activity {
 						 			   
 						 			    
 						 			    rg.addView(rb[z]); //the RadioButtons are added to the radioGroup instead of the layout
-						 			    
+						 				}
 						 		}
 						 				ll.addView(rg);
 				
@@ -255,6 +258,8 @@ public class DetallePlato extends Activity {
 							 			String nombre = mods.get(z).getName();	
 							 			int idm = mods.get(z).getIdModifier();
 							 			String sid_modifier = mods.get(z).getSid();
+							 			if (sid_modifier.contains(sid_ml))
+						 				{
 							 			if(!mods.get(z).getprice().isEmpty())
 						 				{
 							 				if (!mods.get(z).getprice().contains("null"))
@@ -278,8 +283,10 @@ public class DetallePlato extends Activity {
 						 				}
 						                cb.setText(nombre);
 						                cb.setId(idm+z);
+						                cb.setTag(sid_modifier);
 						                ll.addView(cb);
-							 		}
+						 				}
+						 			}
 					 			}else
 					 			{
 	
@@ -288,6 +295,8 @@ public class DetallePlato extends Activity {
 							 			String nombre = mods.get(z).getName();
 							 			int idm = mods.get(z).getIdModifier();
 							 			String sid_modifier = mods.get(z).getSid();
+							 			if (sid_modifier.contains(sid_ml))
+						 				{
 							 			if(!mods.get(z).getprice().isEmpty())
 						 				{
 							 				if (!mods.get(z).getprice().contains("null"))
@@ -311,9 +320,11 @@ public class DetallePlato extends Activity {
 							 			tb.setText(nombre);
 								 		tb.setTextOn(nombre);
 								 		tb.setTextOff(nombre);
+								 		tb.setTag(sid_modifier);
 								 		tb.setId(idm+z);
 								 		ll.addView(tb);
-							 		}
+						 				}
+						 			}
 					 			}
 					 				
 					 		}
@@ -593,6 +604,7 @@ public class DetallePlato extends Activity {
 		                String nombre = rb.getText().toString();
 		                String value = rb.getText().toString();
 		                id = rb.getId();
+		                String sid = (String) rb.getTag();
 		                if (mandatories.contains(nombre))
 		                {
 			                map = new HashMap<String,String>();
@@ -601,15 +613,13 @@ public class DetallePlato extends Activity {
 			                	mandaSels.add(map);
 		                }   
 		                BD.open();
-		                mod = BD.getModsValue(value);
+		                
+		                mod = BD.getModsSid(sid);
 		                idList = mod.getIdList();
 		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
-		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
+		                String cadena[] = sid_modifier.split("\\+");
+		                sid_ml = cadena[1]+"+"+cadena[2];
+		                sid_mls =cadena[2];
 		                
 		                BD.close();
 		                 
@@ -629,7 +639,7 @@ public class DetallePlato extends Activity {
 	                	id = cb.getId();
 	                	String nombre = cb.getText().toString();
 	                	String value = cb.getText().toString();
-	                	
+	                	String sidM = (String) cb.getTag();
 	                	
 	                	if (mandatories.contains(nombre))
 		                {
@@ -641,15 +651,13 @@ public class DetallePlato extends Activity {
 			                
 	                	
 	                	BD.open();
-		                mod = BD.getModsValue(value);
+	                	
+		                mod = BD.getModsSid(sidM);
 		                idList = mod.getIdList();
 		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
-		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
+		                String cadena[] = sid_modifier.split("\\+");
+		                sid_ml = cadena[1]+"+"+cadena[2];
+		                sid_mls =cadena[2];
 		                
 		                BD.close();
 	                	ordermods_item = new Ordermods(id, sid_mls, sid_ml, sid_modifier, value);
@@ -668,6 +676,7 @@ public class DetallePlato extends Activity {
 	                	id = tb.getId();
 	                	String nombre =tb.getText().toString();
 	                	String value=tb.getTextOn().toString();
+	                	String sidM = (String) tb.getTag();
 	                	
 	                	if (mandatories.contains(nombre))
 		                {
@@ -679,18 +688,15 @@ public class DetallePlato extends Activity {
 	                	
 	                	
 	                	BD.open();
-		                mod = BD.getModsValue(value);
+	                	mod = BD.getModsSid(sidM);
 		                idList = mod.getIdList();
 		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
-		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
+		                String cadena[] = sid_modifier.split("\\+");
+		                sid_ml = cadena[1]+"+"+cadena[2];
+		                sid_mls =cadena[2];
 		                
 		                BD.close();
-	                	ordermods_item = new Ordermods(id,sid_mls, sid_ml, sid_modifier, value);
+	                	ordermods_item = new Ordermods(id,sid_mls, sid_ml, sid_modifier,value);
 		                ordermods.add(ordermods_item);
 		                order = new Order(id, id_table, sid_table, sid, category_sid, price, note, 1, name, cantidad, ordermods);
 	                }

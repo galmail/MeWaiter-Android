@@ -411,14 +411,19 @@ public class MenuDia extends Activity{
                     //String item = (String) adapter.getItem(position);
                 	Intent i = new Intent(getApplicationContext(), DetallePlato.class);
                 	final String  seleccion = journalListView.getItemAtPosition(position).toString();
-	            	BD.open();
-	            	Section section = BD.getSectionDatos(seleccion);
-	            	int id_section = section.getId();
-	            	Dish dishSel = BD.getDishesByID(id_section, 0, id_menu, seleccion);
+                	
+                	BD.open();
+                	Dish dishSel= BD.getDishByNameMenu(id_menu, seleccion);
+                	
+	            	int id_section = dishSel.getIdSection();
+	            	String idSection = String.valueOf(id_section);
+	            	
+	            	Section section = BD.getSectionByIdSection(idSection);
+	            	
 	            	BD.close();
 	            	
 	                // passing array index
-	            	int id_dish=dishSel.getId();
+	            	int id_dish =dishSel.getId();
 	            	String sid = dishSel.getSid();
 	            	String name = dishSel.getName();
 	            	id_section = dishSel.getIdSection();

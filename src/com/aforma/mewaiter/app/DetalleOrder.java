@@ -127,117 +127,132 @@ public class DetalleOrder extends Activity {
 		
 		final LinearLayout ll = (LinearLayout) findViewById(R.id.LayoutMod);
 		final LinearLayout ll2 = (LinearLayout) findViewById(R.id.LayoutDisc);
-		
-		
 		 
 		sid = order.getSid(); // Sid del plato
-
 		// Nos quedamos con el sid del plato para la busqueda de los dishmods
 		String[] cadena = sid.split("\\+");
-		String sidD=cadena[0];
+		String sidDish=cadena[0];
 				
 		BD.open();
-		ArrayList<DishMod> dishesmod = BD.getDishesMods(sidD);
+		ArrayList<DishMod> dishesmod = BD.getDishesMods(sidDish); //buscamos los modificadores para el plato
 		BD.close();
 			 		
 			 	
 					for(int j=0; j< dishesmod.size() ;j++)
 					{
-				 		int id = dishesmod.get(j).getId();
-				 		String sidDish = dishesmod.get(j).getSid();
-				 		int idMLS = dishesmod.get(j).getIdMLS();
 				 		
+						
+						String sidD=dishesmod.get(j).getSid();
+						if (sidD.equals(sidDish))
+						{
+							
+							BD.open();
+							int idMLS = dishesmod.get(j).getIdMLS();
+							ListModSet listmodsets = BD.getListModSet(idMLS);
+							sid_mls = listmodsets.getSid();
+							ArrayList<ListMod> listmod = BD.getListMod(idMLS);
+							BD.close();
 				 		
-				 		
-				 		BD.open();
-				 		ArrayList<ListMod> listmod = BD.getListMod(idMLS);
-				 		ListModSet listmodsets = BD.getListModSet(idMLS);
-				 		BD.close();
-				 		
-				 		
-				 		
-				 		
-				 		for (int i=0; i< listmod.size(); i++)
-				 		{
-					 		String titulo = listmod.get(i).getName();
-					 		String isMand = listmod.get(i).getMandatory();
-					 		String isMulti = listmod.get(i).getMultioption();
-					 		sid_ml = listmod.get(j).getSid();
-					 		int idList = listmod.get(i).getIdList();
-					 		BD.open();
-					 		ArrayList<Mod> mods = BD.getMods(idList);
-					 		BD.close();
-	
-					 		TextView title = new TextView(this);				 		
-				            title.setText(titulo);
-				            title.setTextColor(black);
-				            title.setTextSize(18);
-				            title.setTypeface(null, Typeface.BOLD);
-				     
-				            ll.addView(title);
-					 		if ( isMulti.contains("false") )
-				 			{
-						 		final RadioButton[] rb = new RadioButton[mods.size()];
-						 		RadioGroup rg = new RadioGroup(this); //create the RadioGroup
-						 		rg.setClickable(true);
-						 		rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL					 		
-						 		rg.setId(idList);
-						 		for (int z=0; z<mods.size();z++)
-						 		{	
-						 				String nombre = mods.get(z).getName();
-						 				int idm = mods.get(z).getIdModifier();
-						 				
-						 			    rb[z]  = new RadioButton(this);
-						 			    rb[z].setText(nombre);
-						 			    rb[z].setTextColor(black);
-						 			   
-						 			    rg.addView(rb[z]); //the RadioButtons are added to the radioGroup instead of the layout
+				 						 		
+							for (int i=0; i< listmod.size(); i++)
+							{
+						 		String titulo = listmod.get(i).getName();
+						 		String isMand = listmod.get(i).getMandatory();
+						 		String isMulti = listmod.get(i).getMultioption();
+						 		sid_ml = listmod.get(i).getSid();
+						 		
+						 		if ( sid_ml.contains(sid_mls))
+						 		{
+							 		int idList = listmod.get(i).getIdList();
+							 		BD.open();
+							 		ArrayList<Mod> mods = BD.getModsSidBySidML(sid_ml);
+							 		BD.close();
+			
+							 		TextView title = new TextView(this);				 		
+						            title.setText(titulo);
+						            title.setTextColor(black);
+						            title.setTextSize(18);
+						            title.setTypeface(null, Typeface.BOLD);
+						     
+						            ll.addView(title);
+							 		if ( isMulti.contains("false") )
+						 			{
+								 		final RadioButton[] rb = new RadioButton[mods.size()];
+								 		RadioGroup rg = new RadioGroup(this); //create the RadioGroup
+								 		rg.setClickable(true);
+								 		rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL					 		
+								 		rg.setId(idList);
+								 		
+								 		for (int z=0; z<mods.size();z++)
+								 		{	
+								 				String nombre = mods.get(z).getName();
+								 				int idm = mods.get(z).getIdModifier();
+								 				sid_modifier = mods.get(z).getSid();
+								 				
+								 				if (sid_modifier.contains(sid_ml))
+								 				{
+									 			    rb[z]  = new RadioButton(this);
+									 			    rb[z].setText(nombre);
+									 			    rb[z].setTextColor(black);
+									 			    rb[z].setTag(sid_modifier);
+									 			   
+									 			    rg.addView(rb[z]); //the RadioButtons are added to the radioGroup instead of the layout
+								 				}
+								 		}
+								 				ll.addView(rg);
+						
+							 			}
+							 		else
+							 		{
+							 			if ( isMand.contains("true"))
+							 			{
+							 				for (int z=0; z<mods.size();z++)
+									 		{
+									 			String nombre = mods.get(z).getName();	
+									 			int idm = mods.get(z).getIdModifier();
+									 			sid_modifier = mods.get(z).getSid();
+									 			if (sid_modifier.contains(sid_ml))
+								 				{
+											 		final CheckBox cb = new CheckBox(this);
+									                cb.setText(nombre);
+									                cb.setId(idm+z);
+									                cb.setTag(sid_modifier);
+									                
+									                cb.setTextColor(black);
+										 			ll.addView(cb);
+								 				}
+									 		}
+							 			}else
+							 			{
+			
+							 				for (int z=0; z<mods.size();z++)
+									 		{
+									 			String nombre = mods.get(z).getName();
+									 			int idm = mods.get(z).getIdModifier();
+									 			sid_modifier = mods.get(z).getSid();
+									 			if (sid_modifier.contains(sid_ml))
+								 				{
+										 			ToggleButton tb = new ToggleButton(this);
+											 									 			
+											 		tb.setTextOn(nombre);
+											 		tb.setTextOff(nombre);
+											 		tb.setText(nombre);
+											 		tb.setId(idm+z);
+											 		tb.setTag(sid_modifier);
+											 		tb.setTextColor(black);
+										 			ll.addView(tb);
+								 				}
+									 		}
+							 			}
+							 				
+							 		}
 						 		}
-						 				ll.addView(rg);
-				
-					 			}
-					 		else
-					 		{
-					 			if ( isMand.contains("true"))
-					 			{
-					 				for (int z=0; z<mods.size();z++)
-							 		{
-							 			String nombre = mods.get(z).getName();	
-							 			int idm = mods.get(z).getIdModifier();
-							 			
-								 		final CheckBox cb = new CheckBox(this);
-						                cb.setText(nombre);
-						                cb.setId(idm+z);
-						                
-						                cb.setTextColor(black);
-							 			ll.addView(cb);
-							 		}
-					 			}else
-					 			{
-	
-					 				for (int z=0; z<mods.size();z++)
-							 		{
-							 			String nombre = mods.get(z).getName();
-							 			int idm = mods.get(z).getIdModifier();
-							 			
-							 			ToggleButton tb = new ToggleButton(this);
-								 									 			
-								 		tb.setTextOn(nombre);
-								 		tb.setTextOff(nombre);
-								 		tb.setText(nombre);
-								 		tb.setId(idm+z);
-								 		tb.setTextColor(black);
-							 			ll.addView(tb);
-							 		}
-					 			}
-					 				
-					 		}
-				 		
-				 		}			            
-					 				
+					 	
+							}			            
+						}			
 					}
 			 		
-		for (int m=0; m<ordermods.size(); m++)
+		for (int m=0; m < ordermods.size(); m++)
 		{
 			String Value = ordermods.get(m).getValue();
 			showAnswer(Value);
@@ -638,18 +653,11 @@ public class DetalleOrder extends Activity {
 			                	mandaSels.add(map);
 		                }  
 		               
-		                BD.open();
-		                mod = BD.getModsValue(value);
-		                idList = mod.getIdList();
-		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
+		                sid_modifier=(String) rb.getTag();
+		                String cadena[] = sid_modifier.split("\\+");
+		                sid_ml = cadena[1] + "+" + cadena[2];
+		                sid_mls = cadena[2];
 		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
-		                
-		                BD.close();
 		                 
 		                ordermods_item = new Ordermods(id,sid_mls, sid_ml, sid_modifier, value);
 		                ordermods.add(ordermods_item);
@@ -678,18 +686,11 @@ public class DetalleOrder extends Activity {
 		                }   
 			                
 	                	
-	                	BD.open();
-		                mod = BD.getModsValue(value);
-		                idList = mod.getIdList();
-		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
-		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
-		                
-		                BD.close();
+	                	 sid_modifier=(String) cb.getTag();
+			             String cadena[] = sid_modifier.split("\\+");
+			             sid_ml = cadena[1] + "+" + cadena[2];
+			             sid_mls = cadena[2];
+			                
 	                	ordermods_item = new Ordermods(id, sid_mls, sid_ml, sid_modifier, value);
 		                ordermods.add(ordermods_item);
 		                order = new Order(id, id_table, sid_table, sid, category_sid, price, note, 1, name, cantidad, ordermods);
@@ -716,16 +717,10 @@ public class DetalleOrder extends Activity {
 		                }   
 	                	
 	                	
-	                	BD.open();
-		                mod = BD.getModsValue(value);
-		                idList = mod.getIdList();
-		                sid_modifier = mod.getSid();    
-		                modlist = BD.getListModId(idList);
-		                idListSet = modlist.getIdMLS();
-		                sid_ml = modlist.getSid();
-		                
-		                listmodset = BD.getListModSet(idListSet);
-		                sid_mls =listmodset.getSid();
+	                	 sid_modifier=(String) tb.getTag();
+			             String cadena[] = sid_modifier.split("\\+");
+			             sid_ml = cadena[1] + "+" + cadena[2];
+			             sid_mls = cadena[2];
 		                
 		                BD.close();
 	                	ordermods_item = new Ordermods(id,sid_mls, sid_ml, sid_modifier, value);
